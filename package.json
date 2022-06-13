@@ -1,0 +1,13 @@
+{
+    "name": "parse-play",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^17.0.42",
+        "tsm": "^2.2.1"
+    },
+    "dependencies": {
+        "cross-fetch": "^3.1.5"
+    }
+}
