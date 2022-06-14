@@ -46,7 +46,7 @@ export const fetchTopCharts = async (options: {
     const entries = data[0][1][0][28][0];
     assert(entries.length > 0, 'Has data.');
 
-    const parsed = entries.map((e) => {
+    const parsed = entries.map((e, idx) => {
         assert(e.length === 3 && [0, 1, 2].includes(e[2]), 'Expected entry structure.');
 
         const meta = e[0];
@@ -61,6 +61,7 @@ export const fetchTopCharts = async (options: {
         );
 
         return {
+            position: idx + 1,
             app_id: meta[0][0],
             icon_url: meta[1][3][2],
             screenshot_urls: meta[2].map((s) => s[3][2]),
