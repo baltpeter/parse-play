@@ -1,26 +1,33 @@
 import fetch from 'cross-fetch';
-import { CategoryId } from './common/categories';
+import { CategoryId, LanguageCode, CountryCode } from './common/consts';
 import { assert } from './common/assert';
 
-export const fetchTopCharts = async (
-    category: CategoryId,
-    type: 'topselling_free' | 'topgrossing' | 'topselling_paid',
-    length: number
-) => {
+export const fetchTopCharts = async (options: {
+    chart: 'topselling_free' | 'topgrossing' | 'topselling_paid';
+    category: CategoryId;
+    count: number;
+    country: CountryCode;
+    language: LanguageCode;
+}) => {
     // This payload was determined by observing the network traffic on the web UI and then _drastically_ simplifying it
     // by throwing away everything that didn't affect the response.
     const requestPayload = [
         'vyAe2',
-        JSON.stringify([[null, [[null, [null, length]], null, null, [113]], [2, type, category]]]),
+        JSON.stringify([
+            [null, [[null, [null, options.count]], null, null, [113]], [2, options.chart, options.category]],
+        ]),
     ];
 
-    const res = await fetch('https://play.google.com/_/PlayStoreUi/data/batchexecute', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-        },
-        body: `f.req=${encodeURIComponent(JSON.stringify([[requestPayload]]))}`,
-    }).then((r) => r.text());
+    const res = await fetch(
+        `https://play.google.com/_/PlayStoreUi/data/batchexecute?hl=${options.language}&gl=${options.country}`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+            body: `f.req=${encodeURIComponent(JSON.stringify([[requestPayload]]))}`,
+        }
+    ).then((r) => r.text());
 
     const payload = JSON.parse(res.split('\n')[2])[0];
     assert(payload, 'Has payload.');
