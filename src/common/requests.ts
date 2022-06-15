@@ -23,7 +23,7 @@ export const batchExecute = async (requests: RequestPayload[], queryParams?: Que
         body: `f.req=${encodeURIComponent(JSON.stringify([requests.map((r, idx) => [...r, null, '' + idx])]))}`,
     }).then((r) => r.text());
 
-    const messages: any[] = JSON.parse(res.split('\n')[2]);
+    const messages: any[] = JSON.parse(res.split('\n')[2]!);
     assert(messages.length === requests.length + 2, 'Has response payload for each request.');
 
     return messages.slice(0, requests.length);

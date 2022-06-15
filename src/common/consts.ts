@@ -114,7 +114,7 @@ export const countries = {
     GB: 'United Kingdom',
     VA: 'Vatican City',
     WF: 'Wallis & Futuna',
-};
+} as const;
 export type CountryCode = keyof typeof countries;
 
 // To generate, go to <https://developers.google.com/custom-search/docs/xml_results_appendices>, and run the following
@@ -204,5 +204,5 @@ export const languages = {
     CY: 'Welsh',
     XH: 'Xhosa',
     ZU: 'Zulu',
-};
+} as const;
 export type LanguageCode = keyof typeof languages;

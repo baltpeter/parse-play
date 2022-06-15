@@ -1,5 +1,10 @@
 import { strict as strictAssert } from 'assert';
 
-export const assert: typeof strictAssert = process?.env?.ASSERT
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const actuallyAssert = !!process?.env?.ASSERT;
+
+export const assert: typeof strictAssert = actuallyAssert
     ? strictAssert
-    : ((() => {}) as unknown as typeof strictAssert);
+    : // eslint-disable-next-line @typescript-eslint/no-empty-function
+      ((() => {}) as unknown as typeof strictAssert);

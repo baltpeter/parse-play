@@ -26,7 +26,7 @@ export const parseTopChartEntry = (entry: any, idx: number) => ({
     position: (idx + 1) as number,
     app_id: entry[0][0] as string,
     icon_url: entry[1][3][2] as string,
-    screenshot_urls: entry[2].map((s) => s[3][2]) as string[],
+    screenshot_urls: entry[2].map((s: any) => s[3][2]) as string[],
     name: entry[3] as string,
     rating: entry[4][1] as number,
     category: entry[5] as string,
