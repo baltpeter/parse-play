@@ -1,7 +1,7 @@
 {
     "name": "parse-play",
     "description": "Library for fetching and parsing select data on Android apps from the Google Play Store via undocumented internal APIs.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "source": "src/index.ts",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
