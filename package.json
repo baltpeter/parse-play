@@ -1,5 +1,6 @@
 {
     "name": "parse-play",
+    "description": "Library for fetching and parsing select data on Android apps from the Google Play Store via undocumented internal APIs.",
     "version": "1.0.0",
     "source": "src/index.ts",
     "main": "dist/index.js",
@@ -8,7 +9,7 @@
     "author": "Benjamin Altpeter <hi@bn.al>",
     "license": "MIT",
     "scripts": {
-        "prepack": "rm -rf dist && yarn build",
+        "prepack": "rm -rf dist && yarn build && yarn typedoc",
         "build": "parcel build",
         "watch": "parcel watch",
         "test": "echo 'TODO: No test specified yet.'"
@@ -27,6 +28,8 @@
         "lint-staged": "^13.0.1",
         "parcel": "^2.6.0",
         "prettier": "^2.7.0",
+        "typedoc": "^0.22.17",
+        "typedoc-plugin-markdown": "^3.12.1",
         "typescript": "^4.7.3"
     },
     "dependencies": {
@@ -38,7 +41,7 @@
     ],
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged && tsc"
+            "pre-commit": "lint-staged && tsc && typedoc && git add docs"
         }
     },
     "lint-staged": {

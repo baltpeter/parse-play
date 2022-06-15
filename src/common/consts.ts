@@ -1,7 +1,13 @@
 // The old web UI had a dropdown that listed these categories. That doesn't appear to be the case anymore…
 // To generate, run the following in the browser console on
 // <https://web.archive.org/web/20220515000031/https://play.google.com/store/apps/>:
-// Array.from(document.querySelectorAll('#action-dropdown-children-Categories .TEOqAc a')).reduce((acc, cur) => ({...acc, [cur.href.match(/\/([^\/]+?)$/)[1]]: cur.innerText}), {})
+// Array.from(document.querySelectorAll('#action-dropdown-children-Categories .TEOqAc a')).reduce((acc, cur) =>
+// ({...acc, [cur.href.match(/\/([^\/]+?)$/)[1]]: cur.innerText}), {})
+/**
+ * A category on the Play Store.
+ *
+ * @enum
+ */
 export const categories = {
     APPLICATION: 'Applications',
     GAME: 'Games',
@@ -58,11 +64,20 @@ export const categories = {
     GAME_WORD: 'Word',
     FAMILY: 'Kids',
 } as const;
+/**
+ * The ID of a category on the Play Store.
+ */
 export type CategoryId = keyof typeof categories;
 
 // To generate, go to <https://play.google.com/store/apps>, open the country modal from the footer, and then run the
 // following in the browser console:
-// Array.from(document.querySelectorAll('ul.P2Hi5d.DMZ54e.bwNLcf li.xoKNSc')).reduce((acc, cur) => ({...acc, [cur.dataset.gl]: cur.innerText}), {})
+// Array.from(document.querySelectorAll('ul.P2Hi5d.DMZ54e.bwNLcf li.xoKNSc')).reduce((acc, cur) => ({...acc,
+// [cur.dataset.gl]: cur.innerText}), {})
+/**
+ * A country supported by the Play Store.
+ *
+ * @enum
+ */
 export const countries = {
     AX: 'Åland Islands',
     AT: 'Austria',
@@ -115,11 +130,21 @@ export const countries = {
     VA: 'Vatican City',
     WF: 'Wallis & Futuna',
 } as const;
+/**
+ * The country code of a country supported on the Play Store.
+ */
 export type CountryCode = keyof typeof countries;
 
 // To generate, go to <https://developers.google.com/custom-search/docs/xml_results_appendices>, and run the following
 // in the browser console:
-// Array.from(document.querySelector('#supported-interface-languages ~ div.devsite-table-wrapper').querySelectorAll('tr')).slice(1).reduce((acc, cur) => ({...acc, [cur.children.item(1).innerText.toUpperCase()]: cur.children.item(0).innerText}), {})
+// Array.from(document.querySelector('#supported-interface-languages ~
+// div.devsite-table-wrapper').querySelectorAll('tr')).slice(1).reduce((acc, cur) => ({...acc,
+// [cur.children.item(1).innerText.toUpperCase()]: cur.children.item(0).innerText}), {})
+/**
+ * A language supported by the Play Store.
+ *
+ * @enum
+ */
 export const languages = {
     AF: 'Afrikaans',
     SQ: 'Albanian',
@@ -205,4 +230,7 @@ export const languages = {
     XH: 'Xhosa',
     ZU: 'Zulu',
 } as const;
+/**
+ * The language code of a language supported on the Play Store.
+ */
 export type LanguageCode = keyof typeof languages;
