@@ -1,13 +1,55 @@
 {
     "name": "parse-play",
+    "description": "Library for fetching and parsing select data on Android apps from the Google Play Store via undocumented internal APIs.",
     "version": "1.0.0",
-    "main": "index.js",
+    "source": "src/index.ts",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "author": "Benjamin Altpeter <hi@bn.al>",
     "license": "MIT",
+    "scripts": {
+        "prepack": "rm -rf dist && yarn build && yarn typedoc",
+        "build": "parcel build",
+        "watch": "parcel watch",
+        "test": "echo 'TODO: No test specified yet.'"
+    },
     "devDependencies": {
-        "@types/node": "^17.0.42",
-        "tsm": "^2.2.1"
+        "@parcel/packager-ts": "2.6.0",
+        "@parcel/transformer-typescript-types": "2.6.0",
+        "@types/assert": "^1.5.6",
+        "@typescript-eslint/eslint-plugin": "^5.28.0",
+        "@typescript-eslint/parser": "^5.28.0",
+        "eslint": "^8.17.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-eslint-comments": "^3.2.0",
+        "eslint-plugin-import": "^2.26.0",
+        "husky": "4.3.7",
+        "lint-staged": "^13.0.1",
+        "parcel": "^2.6.0",
+        "prettier": "^2.7.0",
+        "typedoc": "^0.22.17",
+        "typedoc-plugin-markdown": "^3.12.1",
+        "typescript": "^4.7.3"
     },
     "dependencies": {
+        "assert": "^2.0.0",
         "cross-fetch": "^3.1.5"
+    },
+    "files": [
+        "/dist"
+    ],
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged && tsc && typedoc && git add docs"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,js,scss,json}": [
+            "prettier --write"
+        ],
+        "*.{ts,js}": [
+            "eslint --fix"
+        ]
     }
 }
