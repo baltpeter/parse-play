@@ -29,5 +29,13 @@ export const batchExecute = async (requests: RequestPayload[], queryParams?: Que
     const messages: any[] = JSON.parse(res.split('\n')[2]!);
     assert(() => messages.length === requests.length + 2, 'Has response payload for each request.');
 
-    return messages.slice(0, requests.length).sort((a, b) => a[a.length - 1] - b[b.length - 1]);
+    const payloads = messages.slice(0, requests.length).sort((a, b) => a[a.length - 1] - b[b.length - 1]);
+
+    return payloads.map((payload, idx) => {
+        assert(() => payload[0] === 'wrb.fr' && payload[1] === requests[idx]?.[0], 'Correct header.');
+
+        const data = JSON.parse(payload[2]);
+        assert(() => data, 'Has inner data.');
+        return data;
+    });
 };

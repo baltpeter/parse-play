@@ -91,14 +91,10 @@ export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => (
     cover_image_url: entry[22][3]?.[2] as string | undefined,
 });
 
-export const parseTopChartPayload = (payload: any): TopChartsEntry[] | undefined => {
-    assert(() => payload[0] === 'wrb.fr' && payload[1] === 'vyAe2', 'Correct header.');
-
-    const data = JSON.parse(payload[2]);
-    assert(() => data, 'Has inner data.');
-
+export const parseTopChartPayload = (data: any): TopChartsEntry[] | undefined => {
     assert(() => data.length === 1, 'One top-level array entry.');
     if (data[0][1] === null) return undefined;
+
     assert(
         () =>
             data[0][1][0].length === 29 &&
@@ -118,7 +114,7 @@ export const parseTopChartPayload = (payload: any): TopChartsEntry[] | undefined
         assert(() => meta.length === 23, 'Meta length.');
         assert(() => meta[8][8][0] === 'CAE=', 'Weird buy param.');
         assert(() => e[1].length === 1 && e[1][0].length === 3, 'Expected weird second meta object structure.');
-        const empty_meta = e[1][0].flat(100);
+        const empty_meta = e[1][0].flat(Infinity);
         assert(
             () =>
                 empty_meta.filter((i: unknown) => i === null).length === empty_meta.length - 1 &&
@@ -160,10 +156,10 @@ export async function fetchTopCharts(
 ): Promise<(TopChartsResult | undefined)[]>;
 export async function fetchTopCharts(requests: TopChartsRequest | TopChartsRequest[], options: TopChartsOptions) {
     const _requests = Array.isArray(requests) ? requests : [requests];
-    const payloads = await batchExecute(
+    const data = await batchExecute(
         _requests.map((r) => topChartsRequestPayload(r)),
         { hl: options.language, gl: options.country }
     );
-    const res = payloads.map((p) => parseTopChartPayload(p));
+    const res = data.map(parseTopChartPayload);
     return _requests.length === 1 ? res[0] : res;
 }
