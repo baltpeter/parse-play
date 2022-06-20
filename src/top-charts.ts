@@ -17,7 +17,7 @@ export type TopChartsRequest = {
     count: number;
 };
 /**
- * Parameters for all top charts request in a {@link fetchTopCharts} call.
+ * Parameters for all top charts requests in a {@link fetchTopCharts} call.
  */
 export type TopChartsOptions = {
     /** The country for which to fetch the top chart(s). */
@@ -48,7 +48,7 @@ export type TopChartsEntry = {
     price: string | undefined;
     /** A URL to the Play Store website to buy the app. */
     buy_url: string | undefined;
-    /** The relative path of the app on the Play Store website, */
+    /** The relative path of the app on the Play Store website. */
     store_path: string;
     /** A URL to a video trailer for the app. */
     trailer_url: string | undefined;
@@ -68,27 +68,27 @@ export type TopChartsResult = TopChartsEntry[];
 
 // This payload was determined by observing the network traffic on the web UI and then _drastically_ simplifying it
 // by throwing away everything that didn't affect the response.
-export const topChartsRequestPayload = (options: TopChartsRequest): RequestPayload => [
+export const topChartsRequestPayload = (request: TopChartsRequest): RequestPayload => [
     'vyAe2',
-    JSON.stringify([[null, [[null, [null, options.count]], null, null, [113]], [2, options.chart, options.category]]]),
+    JSON.stringify([[null, [[null, [null, request.count]], null, null, [113]], [2, request.chart, request.category]]]),
 ];
 
 export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => ({
-    position: (idx + 1) as number,
-    app_id: entry[0][0] as string,
-    icon_url: entry[1][3][2] as string,
-    screenshot_urls: entry[2].map((s: any) => s[3][2]) as string[],
-    name: entry[3] as string,
-    rating: entry[4][1] as number,
-    category: entry[5] as string,
-    price: entry[8]?.[1][0].join(' ').trim() as string | undefined,
-    buy_url: entry[8]?.[6][5][2] as string | undefined,
-    store_path: entry[10][4][2] as string,
-    trailer_url: entry[12]?.[0][0][3][2] as string | undefined,
-    description: entry[13][1] as string,
-    developer: entry[14] as string,
-    downloads: entry[15] as string,
-    cover_image_url: entry[22][3]?.[2] as string | undefined,
+    position: idx + 1,
+    app_id: entry[0][0],
+    icon_url: entry[1][3][2],
+    screenshot_urls: entry[2].map((s: any) => s[3][2]),
+    name: entry[3],
+    rating: entry[4][1],
+    category: entry[5],
+    price: entry[8]?.[1][0].join(' ').trim(),
+    buy_url: entry[8]?.[6][5][2],
+    store_path: entry[10][4][2],
+    trailer_url: entry[12]?.[0][0][3][2],
+    description: entry[13][1],
+    developer: entry[14],
+    downloads: entry[15],
+    cover_image_url: entry[22][3]?.[2],
 });
 
 export const parseTopChartPayload = (data: any): TopChartsEntry[] | undefined => {
@@ -142,7 +142,8 @@ export async function fetchTopCharts(
     options: TopChartsOptions
 ): Promise<TopChartsResult | undefined>;
 /**
- * Same as {@link fetchTopCharts} but for fetching multiple top charts. The top charts are fetched in a single API request.
+ * Same as {@link fetchTopCharts} but for fetching multiple top charts at once. The top charts are fetched in a single
+ * API request.
  *
  * @see {@link fetchTopCharts}
  *
