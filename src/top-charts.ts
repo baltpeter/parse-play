@@ -92,32 +92,35 @@ export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => (
 });
 
 export const parseTopChartPayload = (payload: any): TopChartsEntry[] => {
-    assert(payload[0] === 'wrb.fr' && payload[1] === 'vyAe2', 'Correct header.');
+    assert(() => payload[0] === 'wrb.fr' && payload[1] === 'vyAe2', 'Correct header.');
 
     const data = JSON.parse(payload[2]);
-    assert(data, 'Has inner data.');
+    assert(() => data, 'Has inner data.');
 
-    assert(data.length === 1, 'One top-level array entry.');
+    assert(() => data.length === 1, 'One top-level array entry.');
     assert(
-        data[0][1][0].length === 29 &&
+        () =>
+            data[0][1][0].length === 29 &&
             data[0][1][0][3].length === 1 &&
             data[0][1][0].filter((i: unknown) => i === null).length === 27,
         'Expected inner data structure.'
     );
     const entries: any[] = data[0][1][0][28][0];
-    assert(entries.length > 0, 'Has data.');
+    assert(() => entries.length > 0, 'Has data.');
 
     const parsed = entries.map((e, idx) => {
-        assert(e.length === 3 && [0, 1, 2].includes(e[2]), 'Expected entry structure.');
+        assert(() => e.length === 3 && [0, 1, 2].includes(e[2]), 'Expected entry structure.');
 
         const meta = e[0];
 
-        assert(meta.length === 23, 'Meta length.');
-        assert(meta[8][8][0] === 'CAE=', 'Weird buy param.');
-        assert(e[1].length === 1 && e[1][0].length === 3, 'Expected weird second meta object structure.');
+        assert(() => meta.length === 23, 'Meta length.');
+        assert(() => meta[8][8][0] === 'CAE=', 'Weird buy param.');
+        assert(() => e[1].length === 1 && e[1][0].length === 3, 'Expected weird second meta object structure.');
         const empty_meta = e[1][0].flat(100);
         assert(
-            empty_meta.filter((i: unknown) => i === null).length === empty_meta.length - 1 && empty_meta[3] === meta[5],
+            () =>
+                empty_meta.filter((i: unknown) => i === null).length === empty_meta.length - 1 &&
+                empty_meta[3] === meta[5],
             'Weird second meta object only has category.'
         );
 
@@ -125,11 +128,14 @@ export const parseTopChartPayload = (payload: any): TopChartsEntry[] => {
     });
 
     assert(
-        parsed
-            .map((p) =>
-                Object.entries(p).filter(([key, val]) => (val === undefined || val === null) && key !== 'trailer_url')
-            )
-            .filter((a) => a.length > 0).length === 0,
+        () =>
+            parsed
+                .map((p) =>
+                    Object.entries(p).filter(
+                        ([key, val]) => (val === undefined || val === null) && key !== 'trailer_url'
+                    )
+                )
+                .filter((a) => a.length > 0).length === 0,
         'Only `trailer_url` is ever undefined.'
     );
 

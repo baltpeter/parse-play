@@ -27,7 +27,7 @@ export const batchExecute = async (requests: RequestPayload[], queryParams?: Que
     }).then((r) => r.text());
 
     const messages: any[] = JSON.parse(res.split('\n')[2]!);
-    assert(messages.length === requests.length + 2, 'Has response payload for each request.');
+    assert(() => messages.length === requests.length + 2, 'Has response payload for each request.');
 
     return messages.slice(0, requests.length).sort((a, b) => a[a.length - 1] - b[b.length - 1]);
 };

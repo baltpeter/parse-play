@@ -4,7 +4,8 @@ import { strict as strictAssert } from 'assert';
 // @ts-ignore
 const actuallyAssert = !!process?.env?.ASSERT;
 
-export const assert: typeof strictAssert = actuallyAssert
-    ? strictAssert
+export type AssertionFunction = (value: () => unknown, message?: string | Error) => asserts value;
+export const assert: AssertionFunction = actuallyAssert
+    ? (value, message) => strictAssert(value(), message)
     : // eslint-disable-next-line @typescript-eslint/no-empty-function
-      ((() => {}) as unknown as typeof strictAssert);
+      () => {};
