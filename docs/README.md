@@ -34,7 +34,7 @@ The ID of a category on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:70](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/common/consts.ts#L70)
+[common/consts.ts:70](https://github.com/baltpeter/parse-play/blob/0925f30/src/common/consts.ts#L70)
 
 ___
 
@@ -46,7 +46,7 @@ The country code of a country supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:136](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/common/consts.ts#L136)
+[common/consts.ts:136](https://github.com/baltpeter/parse-play/blob/0925f30/src/common/consts.ts#L136)
 
 ___
 
@@ -58,7 +58,7 @@ The language code of a language supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:236](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/common/consts.ts#L236)
+[common/consts.ts:236](https://github.com/baltpeter/parse-play/blob/0925f30/src/common/consts.ts#L236)
 
 ___
 
@@ -90,7 +90,7 @@ A single app and its associated metadata on a top chart.
 
 #### Defined in
 
-[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/top-charts.ts#L32)
+[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L32)
 
 ___
 
@@ -109,7 +109,7 @@ Parameters for all top charts request in a [fetchTopCharts](README.md#fetchtopch
 
 #### Defined in
 
-[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/top-charts.ts#L22)
+[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L22)
 
 ___
 
@@ -129,7 +129,7 @@ Parameters for a single top charts request.
 
 #### Defined in
 
-[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/top-charts.ts#L8)
+[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L8)
 
 ___
 
@@ -141,13 +141,13 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/top-charts.ts#L67)
+[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L67)
 
 ## Functions
 
 ### fetchTopCharts
 
-▸ **fetchTopCharts**(`request`, `options`): `Promise`<[`TopChartsResult`](README.md#topchartsresult)\>
+▸ **fetchTopCharts**(`request`, `options`): `Promise`<[`TopChartsResult`](README.md#topchartsresult) \| `undefined`\>
 
 Fetch and parse the current top chart rankings from the Play Store for the given criteria.
 
@@ -162,15 +162,15 @@ This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `v
 
 #### Returns
 
-`Promise`<[`TopChartsResult`](README.md#topchartsresult)\>
+`Promise`<[`TopChartsResult`](README.md#topchartsresult) \| `undefined`\>
 
 The top chart.
 
 #### Defined in
 
-[top-charts.ts:154](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/top-charts.ts#L154)
+[top-charts.ts:156](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L156)
 
-▸ **fetchTopCharts**(`requests`, `options`): `Promise`<[`TopChartsResult`](README.md#topchartsresult)[]\>
+▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
 Same as [fetchTopCharts](README.md#fetchtopcharts) but for fetching multiple top charts. The top charts are fetched in a single API request.
 
@@ -185,10 +185,10 @@ Same as [fetchTopCharts](README.md#fetchtopcharts) but for fetching multiple top
 
 #### Returns
 
-`Promise`<[`TopChartsResult`](README.md#topchartsresult)[]\>
+`Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
 An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[top-charts.ts:167](https://github.com/baltpeter/parse-play/blob/a1b7e5c/src/top-charts.ts#L167)
+[top-charts.ts:169](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L169)

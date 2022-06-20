@@ -91,13 +91,14 @@ export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => (
     cover_image_url: entry[22][3][2] as string,
 });
 
-export const parseTopChartPayload = (payload: any): TopChartsEntry[] => {
+export const parseTopChartPayload = (payload: any): TopChartsEntry[] | undefined => {
     assert(() => payload[0] === 'wrb.fr' && payload[1] === 'vyAe2', 'Correct header.');
 
     const data = JSON.parse(payload[2]);
     assert(() => data, 'Has inner data.');
 
     assert(() => data.length === 1, 'One top-level array entry.');
+    if (data[0][1] === null) return undefined;
     assert(
         () =>
             data[0][1][0].length === 29 &&
@@ -105,6 +106,7 @@ export const parseTopChartPayload = (payload: any): TopChartsEntry[] => {
             data[0][1][0].filter((i: unknown) => i === null).length === 27,
         'Expected inner data structure.'
     );
+
     const entries: any[] = data[0][1][0][28][0];
     assert(() => entries.length > 0, 'Has data.');
 
@@ -154,7 +156,7 @@ export const parseTopChartPayload = (payload: any): TopChartsEntry[] => {
 export async function fetchTopCharts(
     request: TopChartsRequest | [TopChartsRequest],
     options: TopChartsOptions
-): Promise<TopChartsResult>;
+): Promise<TopChartsResult | undefined>;
 /**
  * Same as {@link fetchTopCharts} but for fetching multiple top charts. The top charts are fetched in a single API request.
  *
@@ -167,7 +169,7 @@ export async function fetchTopCharts(
 export async function fetchTopCharts(
     requests: TopChartsRequest[],
     options: TopChartsOptions
-): Promise<TopChartsResult[]>;
+): Promise<(TopChartsResult | undefined)[]>;
 export async function fetchTopCharts(requests: TopChartsRequest | TopChartsRequest[], options: TopChartsOptions) {
     const _requests = Array.isArray(requests) ? requests : [requests];
     const payloads = await batchExecute(

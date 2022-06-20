@@ -35,8 +35,8 @@ import { fetchTopCharts } from 'parse-play';
         { country: 'DE', language: 'EN' }
     );
 
-    console.log(topChart.length); // 100
-    console.log(topChart[0].app_id, topChart[0].name); // com.amazon.mShop.android.shopping Amazon Shopping
+    console.log(topChart?.length); // 100
+    console.log(topChart?.[0]?.app_id, topChart?.[0]?.name); // com.amazon.mShop.android.shopping Amazon Shopping
 })();
 ```
 
@@ -53,10 +53,10 @@ const topCharts = await fetchTopCharts(
     { country: 'GB', language: 'EN' }
 );
 
-console.log(topCharts[0].length); // 5
-console.log(topCharts[0][0]?.app_id, topCharts[0][0]?.name); // cn.danatech.xingseus PictureThis - Plant Identifier
-console.log(topCharts[1].length); // 660
-console.log(topCharts[1][0]?.app_id, topCharts[1][0]?.name); // com.MOBGames.PoppyMobileChap1 Poppy Playtime Chapter 1
+console.log(topCharts[0]?.length); // 5
+console.log(topCharts[0]?.[0]?.app_id, topCharts?.[0]?.[0]?.name); // cn.danatech.xingseus PictureThis - Plant Identifier
+console.log(topCharts[1]?.length); // 660
+console.log(topCharts[1]?.[0]?.app_id, topCharts?.[1]?.[0]?.name); // com.MOBGames.PoppyMobileChap1 Poppy Playtime Chapter 1
 ```
 
 Note that despite us try to fetch 1000 apps for the second chart, only 660 apps were returned. This is a server-side limit.
