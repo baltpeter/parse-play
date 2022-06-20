@@ -34,7 +34,7 @@ The ID of a category on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:70](https://github.com/baltpeter/parse-play/blob/0925f30/src/common/consts.ts#L70)
+[common/consts.ts:70](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/common/consts.ts#L70)
 
 ___
 
@@ -46,7 +46,7 @@ The country code of a country supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:136](https://github.com/baltpeter/parse-play/blob/0925f30/src/common/consts.ts#L136)
+[common/consts.ts:136](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/common/consts.ts#L136)
 
 ___
 
@@ -58,7 +58,7 @@ The language code of a language supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:236](https://github.com/baltpeter/parse-play/blob/0925f30/src/common/consts.ts#L236)
+[common/consts.ts:236](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/common/consts.ts#L236)
 
 ___
 
@@ -73,16 +73,16 @@ A single app and its associated metadata on a top chart.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `app_id` | `string` | The app's bundle ID. |
-| `buy_url` | `string` | A URL to the Play Store website to buy the app. |
+| `buy_url` | `string` \| `undefined` | A URL to the Play Store website to buy the app. |
 | `category` | `string` | The app's category. |
-| `cover_image_url` | `string` | A URL to the app's cover image. |
+| `cover_image_url` | `string` \| `undefined` | A URL to the app's cover image. |
 | `description` | `string` | The app's description. |
 | `developer` | `string` | The app's developer. |
 | `downloads` | `string` | The approximate download count of the app, as displayed on the Play Store website. |
 | `icon_url` | `string` | A URL to the app's icon. |
 | `name` | `string` | The app's name. |
 | `position` | `number` | The app's position on the respective top chart. |
-| `price` | `string` | The app's price. |
+| `price` | `string` \| `undefined` | The app's price. |
 | `rating` | `number` | The app's review rating. |
 | `screenshot_urls` | `string`[] | URLs to screenshots of the app. |
 | `store_path` | `string` | The relative path of the app on the Play Store website, |
@@ -90,7 +90,7 @@ A single app and its associated metadata on a top chart.
 
 #### Defined in
 
-[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L32)
+[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/top-charts.ts#L32)
 
 ___
 
@@ -109,7 +109,7 @@ Parameters for all top charts request in a [fetchTopCharts](README.md#fetchtopch
 
 #### Defined in
 
-[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L22)
+[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/top-charts.ts#L22)
 
 ___
 
@@ -129,7 +129,7 @@ Parameters for a single top charts request.
 
 #### Defined in
 
-[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L8)
+[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/top-charts.ts#L8)
 
 ___
 
@@ -141,7 +141,7 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L67)
+[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/top-charts.ts#L67)
 
 ## Functions
 
@@ -168,7 +168,7 @@ The top chart.
 
 #### Defined in
 
-[top-charts.ts:156](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L156)
+[top-charts.ts:144](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/top-charts.ts#L144)
 
 ▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
@@ -191,4 +191,4 @@ An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[top-charts.ts:169](https://github.com/baltpeter/parse-play/blob/0925f30/src/top-charts.ts#L169)
+[top-charts.ts:157](https://github.com/baltpeter/parse-play/blob/d18a5c3/src/top-charts.ts#L157)

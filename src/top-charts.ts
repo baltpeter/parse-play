@@ -45,9 +45,9 @@ export type TopChartsEntry = {
     /** The app's category. */
     category: string;
     /** The app's price. */
-    price: string;
+    price: string | undefined;
     /** A URL to the Play Store website to buy the app. */
-    buy_url: string;
+    buy_url: string | undefined;
     /** The relative path of the app on the Play Store website, */
     store_path: string;
     /** A URL to a video trailer for the app. */
@@ -59,7 +59,7 @@ export type TopChartsEntry = {
     /** The approximate download count of the app, as displayed on the Play Store website. */
     downloads: string;
     /** A URL to the app's cover image. */
-    cover_image_url: string;
+    cover_image_url: string | undefined;
 };
 /**
  * A list of the entries on the respective top chart.
@@ -81,14 +81,14 @@ export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => (
     name: entry[3] as string,
     rating: entry[4][1] as number,
     category: entry[5] as string,
-    price: entry[8][1][0].join(' ').trim() as string,
-    buy_url: entry[8][6][5][2] as string,
+    price: entry[8]?.[1][0].join(' ').trim() as string | undefined,
+    buy_url: entry[8]?.[6][5][2] as string | undefined,
     store_path: entry[10][4][2] as string,
     trailer_url: entry[12]?.[0][0][3][2] as string | undefined,
     description: entry[13][1] as string,
     developer: entry[14] as string,
     downloads: entry[15] as string,
-    cover_image_url: entry[22][3][2] as string,
+    cover_image_url: entry[22][3]?.[2] as string | undefined,
 });
 
 export const parseTopChartPayload = (payload: any): TopChartsEntry[] | undefined => {
@@ -128,18 +128,6 @@ export const parseTopChartPayload = (payload: any): TopChartsEntry[] | undefined
 
         return parseTopChartEntry(meta, idx);
     });
-
-    assert(
-        () =>
-            parsed
-                .map((p) =>
-                    Object.entries(p).filter(
-                        ([key, val]) => (val === undefined || val === null) && key !== 'trailer_url'
-                    )
-                )
-                .filter((a) => a.length > 0).length === 0,
-        'Only `trailer_url` is ever undefined.'
-    );
 
     return parsed;
 };
