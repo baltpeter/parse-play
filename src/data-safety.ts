@@ -120,6 +120,48 @@ export const parseDataSafetyLabelPayload = (payload: any): DataSafetyLabel | und
 };
 
 /**
+ * Fetch the given app's data safety label from the Google Play Store.
+ * Only use this function if you want to work on the unparsed data.
+ *
+ * `fetchUnparsedDataSafetyLabels.map(x => parseDataSafetyLabelPayload) == fetchDataSafetyLabels`
+ *
+ * This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `Ws7gDc`.
+ *
+ * @param request The parameters for which app to fetch.
+ * @param options Language options.
+ * @returns The data safety label.
+ */
+export async function fetchUnparsedDataSafetyLabels(
+    request: DataSafetyLabelRequest | [DataSafetyLabelRequest],
+    options: DataSafetyLabelsOptions
+): Promise<any | undefined>;
+
+/**
+ * Same as {@link fetchUnparsedDataSafetyLabels} but for fetching multiple data safety labels at once. The data safety labels
+ * are fetched in a single API request.
+ *
+ * @see {@link fetchUnparsedDataSafetyLabels}
+ *
+ * @param requests An array of data safety label requests.
+ * @param options The options for _all_ requests.
+ * @returns An array of the data safety labels, in the same order as the requests.
+ */
+export async function fetchUnparsedDataSafetyLabels(
+    requests: DataSafetyLabelRequest[],
+    options: DataSafetyLabelsOptions
+): Promise<(any | undefined)[]>;
+export async function fetchUnparsedDataSafetyLabels(
+    requests: DataSafetyLabelRequest | DataSafetyLabelRequest[],
+    options: DataSafetyLabelsOptions
+) {
+    const _requests = Array.isArray(requests) ? requests : [requests];
+    return await batchExecute(
+        _requests.map((r) => dataSafetyLabelsRequestPayload(r)),
+        { hl: options.language }
+    );
+}
+
+/**
  * Fetch and parse the given app's data safety label from the Google Play Store.
  *
  * This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `Ws7gDc`.
@@ -151,10 +193,7 @@ export async function fetchDataSafetyLabels(
     options: DataSafetyLabelsOptions
 ) {
     const _requests = Array.isArray(requests) ? requests : [requests];
-    const data = await batchExecute(
-        _requests.map((r) => dataSafetyLabelsRequestPayload(r)),
-        { hl: options.language }
-    );
+    const data = await fetchUnparsedDataSafetyLabels(_requests, options);
     const res = data.map(parseDataSafetyLabelPayload);
     return _requests.length === 1 ? res[0] : res;
 }
