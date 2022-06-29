@@ -67,7 +67,7 @@ A country supported by the Play Store.
 
 #### Defined in
 
-[common/consts.ts:83](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L83)
+[common/consts.ts:83](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L83)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:82](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L82)
+[common/consts.ts:82](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L82)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:84](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L84)
+[common/consts.ts:84](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L84)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:85](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L85)
+[common/consts.ts:85](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L85)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:124](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L124)
+[common/consts.ts:124](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L124)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:87](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L87)
+[common/consts.ts:87](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L87)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:88](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L88)
+[common/consts.ts:88](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L88)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:96](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L96)
+[common/consts.ts:96](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L96)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:89](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L89)
+[common/consts.ts:89](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L89)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:90](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L90)
+[common/consts.ts:90](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L90)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:123](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L123)
+[common/consts.ts:123](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L123)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:92](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L92)
+[common/consts.ts:92](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L92)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:91](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L91)
+[common/consts.ts:91](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L91)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:93](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L93)
+[common/consts.ts:93](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L93)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:129](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L129)
+[common/consts.ts:129](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L129)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:94](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L94)
+[common/consts.ts:94](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L94)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:97](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L97)
+[common/consts.ts:97](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L97)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:99](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L99)
+[common/consts.ts:99](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L99)
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:100](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L100)
+[common/consts.ts:100](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L100)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:98](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L98)
+[common/consts.ts:98](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L98)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:86](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L86)
+[common/consts.ts:86](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L86)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:101](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L101)
+[common/consts.ts:101](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L101)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:103](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L103)
+[common/consts.ts:103](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L103)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:102](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L102)
+[common/consts.ts:102](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L102)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:104](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L104)
+[common/consts.ts:104](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L104)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:106](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L106)
+[common/consts.ts:106](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L106)
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:107](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L107)
+[common/consts.ts:107](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L107)
 
 ___
 
@@ -337,7 +337,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:108](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L108)
+[common/consts.ts:108](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L108)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:105](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L105)
+[common/consts.ts:105](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L105)
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:112](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L112)
+[common/consts.ts:112](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L112)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:125](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L125)
+[common/consts.ts:125](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L125)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:110](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L110)
+[common/consts.ts:110](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L110)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:109](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L109)
+[common/consts.ts:109](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L109)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:114](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L114)
+[common/consts.ts:114](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L114)
 
 ___
 
@@ -407,7 +407,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:113](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L113)
+[common/consts.ts:113](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L113)
 
 ___
 
@@ -417,7 +417,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:115](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L115)
+[common/consts.ts:115](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L115)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:95](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L95)
+[common/consts.ts:95](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L95)
 
 ___
 
@@ -437,7 +437,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:116](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L116)
+[common/consts.ts:116](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L116)
 
 ___
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:126](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L126)
+[common/consts.ts:126](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L126)
 
 ___
 
@@ -457,7 +457,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:117](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L117)
+[common/consts.ts:117](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L117)
 
 ___
 
@@ -467,7 +467,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:118](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L118)
+[common/consts.ts:118](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L118)
 
 ___
 
@@ -477,7 +477,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:119](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L119)
+[common/consts.ts:119](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L119)
 
 ___
 
@@ -487,7 +487,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:128](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L128)
+[common/consts.ts:128](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L128)
 
 ___
 
@@ -497,7 +497,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:122](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L122)
+[common/consts.ts:122](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L122)
 
 ___
 
@@ -507,7 +507,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:127](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L127)
+[common/consts.ts:127](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L127)
 
 ___
 
@@ -517,7 +517,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:121](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L121)
+[common/consts.ts:121](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L121)
 
 ___
 
@@ -527,7 +527,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:120](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L120)
+[common/consts.ts:120](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L120)
 
 ___
 
@@ -537,7 +537,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:130](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L130)
+[common/consts.ts:130](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L130)
 
 ___
 
@@ -547,7 +547,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:131](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L131)
+[common/consts.ts:131](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L131)
 
 ___
 
@@ -557,4 +557,4 @@ ___
 
 #### Defined in
 
-[common/consts.ts:111](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L111)
+[common/consts.ts:111](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L111)

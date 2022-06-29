@@ -1,4 +1,4 @@
-export { fetchTopCharts } from './top-charts';
+export { fetchTopCharts, parseTopChartPayload, topChartsRequestPayload } from './top-charts';
 export { fetchDataSafetyLabels, parseDataSafetyLabelPayload, dataSafetyLabelsRequestPayload } from './data-safety';
 
 export { batchExecute } from './common/requests';
