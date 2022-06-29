@@ -1,6 +1,7 @@
-export { fetchTopCharts } from './top-charts';
-export { fetchDataSafetyLabels } from './data-safety';
+export { fetchTopCharts, parseTopChartPayload, topChartsRequestPayload } from './top-charts';
+export { fetchDataSafetyLabels, parseDataSafetyLabelPayload, dataSafetyLabelsRequestPayload } from './data-safety';
 
+export { batchExecute } from './common/requests';
 export { categories, countries, languages } from './common/consts';
 
 export type { TopChartsRequest, TopChartsOptions, TopChartsResult, TopChartsEntry } from './top-charts';
