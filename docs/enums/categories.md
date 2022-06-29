@@ -71,7 +71,7 @@ A category on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:45](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L45)
+[common/consts.ts:45](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L45)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:12](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L12)
+[common/consts.ts:12](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L12)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:14](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L14)
+[common/consts.ts:14](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L14)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:15](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L15)
+[common/consts.ts:15](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L15)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:16](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L16)
+[common/consts.ts:16](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L16)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:17](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L17)
+[common/consts.ts:17](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L17)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:18](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L18)
+[common/consts.ts:18](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L18)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:19](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L19)
+[common/consts.ts:19](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L19)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:20](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L20)
+[common/consts.ts:20](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L20)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:21](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L21)
+[common/consts.ts:21](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L21)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:22](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L22)
+[common/consts.ts:22](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L22)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:23](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L23)
+[common/consts.ts:23](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L23)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:24](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L24)
+[common/consts.ts:24](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L24)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:65](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L65)
+[common/consts.ts:65](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L65)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:25](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L25)
+[common/consts.ts:25](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L25)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:26](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L26)
+[common/consts.ts:26](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L26)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:13](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L13)
+[common/consts.ts:13](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L13)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:48](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L48)
+[common/consts.ts:48](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L48)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:49](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L49)
+[common/consts.ts:49](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L49)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:50](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L50)
+[common/consts.ts:50](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L50)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:51](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L51)
+[common/consts.ts:51](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L51)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:52](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L52)
+[common/consts.ts:52](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L52)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:53](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L53)
+[common/consts.ts:53](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L53)
 
 ___
 
@@ -301,7 +301,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:54](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L54)
+[common/consts.ts:54](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L54)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:55](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L55)
+[common/consts.ts:55](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L55)
 
 ___
 
@@ -321,7 +321,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:56](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L56)
+[common/consts.ts:56](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L56)
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:57](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L57)
+[common/consts.ts:57](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L57)
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:58](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L58)
+[common/consts.ts:58](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L58)
 
 ___
 
@@ -351,7 +351,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:59](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L59)
+[common/consts.ts:59](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L59)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:60](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L60)
+[common/consts.ts:60](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L60)
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:61](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L61)
+[common/consts.ts:61](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L61)
 
 ___
 
@@ -381,7 +381,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:62](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L62)
+[common/consts.ts:62](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L62)
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:63](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L63)
+[common/consts.ts:63](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L63)
 
 ___
 
@@ -401,7 +401,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:64](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L64)
+[common/consts.ts:64](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L64)
 
 ___
 
@@ -411,7 +411,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:27](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L27)
+[common/consts.ts:27](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L27)
 
 ___
 
@@ -421,7 +421,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:28](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L28)
+[common/consts.ts:28](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L28)
 
 ___
 
@@ -431,7 +431,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:29](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L29)
+[common/consts.ts:29](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L29)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:30](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L30)
+[common/consts.ts:30](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L30)
 
 ___
 
@@ -451,7 +451,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:31](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L31)
+[common/consts.ts:31](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L31)
 
 ___
 
@@ -461,7 +461,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:32](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L32)
+[common/consts.ts:32](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L32)
 
 ___
 
@@ -471,7 +471,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:33](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L33)
+[common/consts.ts:33](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L33)
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:34](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L34)
+[common/consts.ts:34](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L34)
 
 ___
 
@@ -491,7 +491,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:35](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L35)
+[common/consts.ts:35](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L35)
 
 ___
 
@@ -501,7 +501,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:36](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L36)
+[common/consts.ts:36](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L36)
 
 ___
 
@@ -511,7 +511,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:37](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L37)
+[common/consts.ts:37](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L37)
 
 ___
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:38](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L38)
+[common/consts.ts:38](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L38)
 
 ___
 
@@ -531,7 +531,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:39](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L39)
+[common/consts.ts:39](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L39)
 
 ___
 
@@ -541,7 +541,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:40](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L40)
+[common/consts.ts:40](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L40)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:41](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L41)
+[common/consts.ts:41](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L41)
 
 ___
 
@@ -561,7 +561,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:42](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L42)
+[common/consts.ts:42](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L42)
 
 ___
 
@@ -571,7 +571,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:43](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L43)
+[common/consts.ts:43](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L43)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:44](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L44)
+[common/consts.ts:44](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L44)
 
 ___
 
@@ -591,7 +591,7 @@ ___
 
 #### Defined in
 
-[common/consts.ts:46](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L46)
+[common/consts.ts:46](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L46)
 
 ___
 
@@ -601,4 +601,4 @@ ___
 
 #### Defined in
 
-[common/consts.ts:47](https://github.com/baltpeter/parse-play/blob/fb37ee5/src/common/consts.ts#L47)
+[common/consts.ts:47](https://github.com/baltpeter/parse-play/blob/7d0a622/src/common/consts.ts#L47)
