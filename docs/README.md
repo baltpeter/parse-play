@@ -15,16 +15,24 @@ parse-play - v1.0.1
 - [CategoryId](README.md#categoryid)
 - [CountryCode](README.md#countrycode)
 - [DataSafetyLabel](README.md#datasafetylabel)
-- [DataSafetyLabelEntry](README.md#datasafetylabelentry)
+- [DataSafetyLabelDataCategory](README.md#datasafetylabeldatacategory)
+- [DataSafetyLabelDataType](README.md#datasafetylabeldatatype)
+- [DataSafetyLabelPurpose](README.md#datasafetylabelpurpose)
 - [DataSafetyLabelRequest](README.md#datasafetylabelrequest)
-- [DataSafetyLabelRow](README.md#datasafetylabelrow)
-- [DataSafetyLabelSection](README.md#datasafetylabelsection)
+- [DataSafetyLabelSecurityPracticesDeclarations](README.md#datasafetylabelsecuritypracticesdeclarations)
 - [DataSafetyLabelsOptions](README.md#datasafetylabelsoptions)
+- [DataTypeDeclaration](README.md#datatypedeclaration)
 - [LanguageCode](README.md#languagecode)
 - [TopChartsEntry](README.md#topchartsentry)
 - [TopChartsOptions](README.md#topchartsoptions)
 - [TopChartsRequest](README.md#topchartsrequest)
 - [TopChartsResult](README.md#topchartsresult)
+
+### Variables
+
+- [dataSafetyLabelDataCategories](README.md#datasafetylabeldatacategories)
+- [dataSafetyLabelDataTypes](README.md#datasafetylabeldatatypes)
+- [dataSafetyLabelPurposes](README.md#datasafetylabelpurposes)
 
 ### Functions
 
@@ -41,7 +49,7 @@ The ID of a category on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:70](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L70)
+[common/consts.ts:74](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L74)
 
 ___
 
@@ -53,7 +61,7 @@ The country code of a country supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:136](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L136)
+[common/consts.ts:140](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L140)
 
 ___
 
@@ -68,8 +76,8 @@ An app's data safety label.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `app_id` | `string` | The app's bundle ID. |
-| `data_collected` | [`DataSafetyLabelSection`](README.md#datasafetylabelsection) \| `undefined` | An overview of the data the app may collect. |
-| `data_shared` | [`DataSafetyLabelSection`](README.md#datasafetylabelsection) \| `undefined` | An overview of the data that the app may share with other companies or organizations. |
+| `data_collected` | [`DataTypeDeclaration`](README.md#datatypedeclaration)[] \| `undefined` | An overview of the data the app may collect. |
+| `data_shared` | [`DataTypeDeclaration`](README.md#datatypedeclaration)[] \| `undefined` | An overview of the data that the app may share with other companies or organizations. |
 | `developer` | { `address`: `string` \| `undefined` ; `email`: `string` ; `name`: `string` ; `path`: `string` ; `website_url`: `string` \| `undefined`  } | Data about the app's developer. |
 | `developer.address` | `string` \| `undefined` | The developer's address. |
 | `developer.email` | `string` | The developer's email address. |
@@ -79,31 +87,47 @@ An app's data safety label.
 | `icon_url` | `string` | The URL to the app's icon. |
 | `name` | `string` | The app's name. |
 | `privacy_policy_url` | `string` \| `undefined` | The URL to the app's privacy policy. |
-| `security_practices` | [`DataSafetyLabelEntry`](README.md#datasafetylabelentry) \| `undefined` | An overview of the app's security practices. |
+| `security_practices` | [`DataSafetyLabelSecurityPracticesDeclarations`](README.md#datasafetylabelsecuritypracticesdeclarations) \| `undefined` | An overview of the app's security practices. |
 
 #### Defined in
 
-[data-safety.ts:49](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L49)
+[data-safety.ts:59](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L59)
 
 ___
 
-### DataSafetyLabelEntry
+### DataSafetyLabelDataCategory
 
-Ƭ **DataSafetyLabelEntry**: `Object`
+Ƭ **DataSafetyLabelDataCategory**: typeof [`dataSafetyLabelDataCategories`](README.md#datasafetylabeldatacategories)[`number`]
 
-An entry in a row of a data safety label.
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `description` | `string` | The entry's description (subheading). |
-| `heading` | `string` | The entry's heading. |
-| `icons` | `string`[] | A list of URLs to icons that represent the entry. |
+A category that groups multiple related data types in a data safety label.
 
 #### Defined in
 
-[data-safety.ts:25](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L25)
+[common/consts.ts:270](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L270)
+
+___
+
+### DataSafetyLabelDataType
+
+Ƭ **DataSafetyLabelDataType**: typeof [`dataSafetyLabelDataTypes`](README.md#datasafetylabeldatatypes)[`number`]
+
+A type of data that can be declared in a data safety label.
+
+#### Defined in
+
+[common/consts.ts:319](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L319)
+
+___
+
+### DataSafetyLabelPurpose
+
+Ƭ **DataSafetyLabelPurpose**: typeof [`dataSafetyLabelPurposes`](README.md#datasafetylabelpurposes)[`number`]
+
+A purpose for which data collection or sharing can be declared in a data safety label.
+
+#### Defined in
+
+[common/consts.ts:337](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L337)
 
 ___
 
@@ -121,38 +145,28 @@ Parameters for a single data safety label request.
 
 #### Defined in
 
-[data-safety.ts:8](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L8)
+[data-safety.ts:14](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L14)
 
 ___
 
-### DataSafetyLabelRow
+### DataSafetyLabelSecurityPracticesDeclarations
 
-Ƭ **DataSafetyLabelRow**: `Object`
+Ƭ **DataSafetyLabelSecurityPracticesDeclarations**: `Object`
 
-A row in a section of a data safety label.
+An app's declared security practices in a data safety label.
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `category` | [`DataSafetyLabelEntry`](README.md#datasafetylabelentry) | The entry this row is about. |
-| `data` | {}[] | The data that this row concerns. |
+| `can_request_data_deletion` | `boolean` \| `undefined` | Whether the app provides a way for users to request deletion of their data. |
+| `committed_to_play_families_policy` | `boolean` \| `undefined` | Whether the developer has reviewed the app's compliance with Google Play's [Families policy requirements](https://support.google.com/googleplay/android-developer/answer/9893335) (only for applicable apps). |
+| `data_encrypted_in_transit` | `boolean` \| `undefined` | Whether data collected or shared by the app uses encryption in transit. |
+| `independent_security_review` | `boolean` \| `undefined` | Whether the app has been independently validated against a global security standard. |
 
 #### Defined in
 
-[data-safety.ts:36](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L36)
-
-___
-
-### DataSafetyLabelSection
-
-Ƭ **DataSafetyLabelSection**: [`DataSafetyLabelRow`](README.md#datasafetylabelrow)[]
-
-A section in a data safety label.
-
-#### Defined in
-
-[data-safety.ts:45](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L45)
+[data-safety.ts:42](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L42)
 
 ___
 
@@ -170,7 +184,27 @@ Parameters for all data safety label requests in a [fetchDataSafetyLabels](READM
 
 #### Defined in
 
-[data-safety.ts:17](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L17)
+[data-safety.ts:23](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L23)
+
+___
+
+### DataTypeDeclaration
+
+Ƭ **DataTypeDeclaration**: `Object`
+
+An app's declaration for a single data type in a data safety label.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `category` | [`DataSafetyLabelDataCategory`](README.md#datasafetylabeldatacategory) | The category the data type fits into. |
+| `purposes` | [`DataSafetyLabelPurpose`](README.md#datasafetylabelpurpose)[] | The purposes for which the data type is collected or shared. |
+| `type` | [`DataSafetyLabelDataType`](README.md#datasafetylabeldatatype) | The data type. |
+
+#### Defined in
+
+[data-safety.ts:31](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L31)
 
 ___
 
@@ -182,7 +216,7 @@ The language code of a language supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:236](https://github.com/baltpeter/parse-play/blob/9b21564/src/common/consts.ts#L236)
+[common/consts.ts:240](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L240)
 
 ___
 
@@ -214,7 +248,7 @@ A single app and its associated metadata on a top chart.
 
 #### Defined in
 
-[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/9b21564/src/top-charts.ts#L32)
+[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/top-charts.ts#L32)
 
 ___
 
@@ -233,7 +267,7 @@ Parameters for all top charts requests in a [fetchTopCharts](README.md#fetchtopc
 
 #### Defined in
 
-[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/9b21564/src/top-charts.ts#L22)
+[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/top-charts.ts#L22)
 
 ___
 
@@ -253,7 +287,7 @@ Parameters for a single top charts request.
 
 #### Defined in
 
-[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/9b21564/src/top-charts.ts#L8)
+[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/top-charts.ts#L8)
 
 ___
 
@@ -265,7 +299,49 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/9b21564/src/top-charts.ts#L67)
+[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/top-charts.ts#L67)
+
+## Variables
+
+### dataSafetyLabelDataCategories
+
+• `Const` **dataSafetyLabelDataCategories**: readonly [``"App activity"``, ``"App info and performance"``, ``"Audio files"``, ``"Calendar"``, ``"Contacts"``, ``"Device or other IDs"``, ``"Files and docs"``, ``"Financial info"``, ``"Health and fitness"``, ``"Location"``, ``"Messages"``, ``"Personal info"``, ``"Photos and videos"``, ``"Web browsing"``]
+
+The categories that group multiple related data types in a data safety label.
+
+Taken from the official documentation: <https://web.archive.org/web/20220701122426/https://support.google.com/googleplay/android-developer/answer/10787469#zippy=%2Cdata-types>
+
+#### Defined in
+
+[common/consts.ts:251](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L251)
+
+___
+
+### dataSafetyLabelDataTypes
+
+• `Const` **dataSafetyLabelDataTypes**: readonly [``"Approximate location"``, ``"Precise location"``, ``"Name"``, ``"Email address"``, ``"User IDs"``, ``"Address"``, ``"Phone number"``, ``"Race and ethnicity"``, ``"Political or religious beliefs"``, ``"Sexual orientation"``, ``"Other info"``, ``"User payment info"``, ``"Purchase history"``, ``"Credit score"``, ``"Other financial info"``, ``"Health info"``, ``"Fitness info"``, ``"Emails"``, ``"SMS or MMS"``, ``"Other in-app messages"``, ``"Photos"``, ``"Videos"``, ``"Voice or sound recordings"``, ``"Music files"``, ``"Other audio files"``, ``"Files and docs"``, ``"Calendar events"``, ``"Contacts"``, ``"App interactions"``, ``"In-app search history"``, ``"Installed apps"``, ``"Other user-generated content"``, ``"Other actions"``, ``"Web browsing history"``, ``"Crash logs"``, ``"Diagnostics"``, ``"Other app performance data"``, ``"Device or other IDs"``]
+
+The types of data that can be declared in a data safety label.
+
+Taken from the official documentation: <https://web.archive.org/web/20220701122426/https://support.google.com/googleplay/android-developer/answer/10787469#zippy=%2Cdata-types>
+
+#### Defined in
+
+[common/consts.ts:276](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L276)
+
+___
+
+### dataSafetyLabelPurposes
+
+• `Const` **dataSafetyLabelPurposes**: readonly [``"App functionality"``, ``"Analytics"``, ``"Developer communications"``, ``"Advertising or marketing"``, ``"Fraud prevention, security, and compliance"``, ``"Personalization"``, ``"Account management"``]
+
+The purposes for which data collection or sharing can be declared in a data safety label.
+
+Taken from the official documentation: <https://web.archive.org/web/20220701122426/https://support.google.com/googleplay/android-developer/answer/10787469#zippy=%2Cpurposes>
+
+#### Defined in
+
+[common/consts.ts:325](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/common/consts.ts#L325)
 
 ## Functions
 
@@ -292,7 +368,7 @@ The data safety label.
 
 #### Defined in
 
-[data-safety.ts:131](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L131)
+[data-safety.ts:183](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L183)
 
 ▸ **fetchDataSafetyLabels**(`requests`, `options`): `Promise`<([`DataSafetyLabel`](README.md#datasafetylabel) \| `undefined`)[]\>
 
@@ -316,7 +392,7 @@ An array of the data safety labels, in the same order as the requests.
 
 #### Defined in
 
-[data-safety.ts:145](https://github.com/baltpeter/parse-play/blob/9b21564/src/data-safety.ts#L145)
+[data-safety.ts:197](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/data-safety.ts#L197)
 
 ___
 
@@ -343,7 +419,7 @@ The top chart.
 
 #### Defined in
 
-[top-charts.ts:140](https://github.com/baltpeter/parse-play/blob/9b21564/src/top-charts.ts#L140)
+[top-charts.ts:140](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/top-charts.ts#L140)
 
 ▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
@@ -367,4 +443,4 @@ An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[top-charts.ts:154](https://github.com/baltpeter/parse-play/blob/9b21564/src/top-charts.ts#L154)
+[top-charts.ts:154](https://github.com/baltpeter/parse-play/blob/f5c56d2/src/top-charts.ts#L154)
