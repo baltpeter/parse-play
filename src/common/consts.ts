@@ -1,3 +1,7 @@
+// +++++++++++++++
+// +++ General +++
+// +++++++++++++++
+
 // The old web UI had a dropdown that listed these categories. That doesn't appear to be the case anymore…
 // To generate, run the following in the browser console on
 // <https://web.archive.org/web/20220515000031/https://play.google.com/store/apps/>:
@@ -234,3 +238,100 @@ export const languages = {
  * The language code of a language supported on the Play Store.
  */
 export type LanguageCode = keyof typeof languages;
+
+// ++++++++++++++++++++++++++
+// +++ Data safety labels +++
+// ++++++++++++++++++++++++++
+
+/**
+ * The categories that group multiple related data types in a data safety label.
+ *
+ * Taken from the official documentation: <https://web.archive.org/web/20220701122426/https://support.google.com/googleplay/android-developer/answer/10787469#zippy=%2Cdata-types>
+ */
+export const dataSafetyLabelDataCategories = [
+    'App activity',
+    'App info and performance',
+    'Audio files',
+    'Calendar',
+    'Contacts',
+    'Device or other IDs',
+    'Files and docs',
+    'Financial info',
+    'Health and fitness',
+    'Location',
+    'Messages',
+    'Personal info',
+    'Photos and videos',
+    'Web browsing',
+] as const;
+/**
+ * A category that groups multiple related data types in a data safety label.
+ */
+export type DataSafetyLabelDataCategory = typeof dataSafetyLabelDataCategories[number];
+/**
+ * The types of data that can be declared in a data safety label.
+ *
+ * Taken from the official documentation: <https://web.archive.org/web/20220701122426/https://support.google.com/googleplay/android-developer/answer/10787469#zippy=%2Cdata-types>
+ */
+export const dataSafetyLabelDataTypes = [
+    'Approximate location',
+    'Precise location',
+    'Name',
+    'Email address',
+    'User IDs',
+    'Address',
+    'Phone number',
+    'Race and ethnicity',
+    'Political or religious beliefs',
+    'Sexual orientation',
+    'Other info',
+    'User payment info',
+    'Purchase history',
+    'Credit score',
+    'Other financial info',
+    'Health info',
+    'Fitness info',
+    'Emails',
+    'SMS or MMS',
+    'Other in-app messages',
+    'Photos',
+    'Videos',
+    'Voice or sound recordings',
+    'Music files',
+    'Other audio files',
+    'Files and docs',
+    'Calendar events',
+    'Contacts',
+    'App interactions',
+    'In-app search history',
+    'Installed apps',
+    'Other user-generated content',
+    'Other actions',
+    'Web browsing history',
+    'Crash logs',
+    'Diagnostics',
+    'Other app performance data',
+    'Device or other IDs',
+] as const;
+/**
+ * A type of data that can be declared in a data safety label.
+ */
+export type DataSafetyLabelDataType = typeof dataSafetyLabelDataTypes[number];
+/**
+ * The purposes for which data collection or sharing can be declared in a data safety label.
+ *
+ * Taken from the official documentation: <https://web.archive.org/web/20220701122426/https://support.google.com/googleplay/android-developer/answer/10787469#zippy=%2Cpurposes>
+ */
+export const dataSafetyLabelPurposes = [
+    'App functionality',
+    'Analytics',
+    'Developer communications',
+    'Advertising or marketing',
+    'Fraud prevention, security, and compliance',
+    'Personalization',
+    'Account management',
+] as const;
+/**
+ * A purpose for which data collection or sharing can be declared in a data safety label.
+ */
+export type DataSafetyLabelPurpose = typeof dataSafetyLabelPurposes[number];

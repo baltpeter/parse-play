@@ -2,15 +2,28 @@ export { fetchTopCharts, parseTopChartPayload, topChartsRequestPayload } from '.
 export { fetchDataSafetyLabels, parseDataSafetyLabelPayload, dataSafetyLabelsRequestPayload } from './data-safety';
 
 export { batchExecute } from './common/requests';
-export { categories, countries, languages } from './common/consts';
+export {
+    categories,
+    countries,
+    languages,
+    dataSafetyLabelDataCategories,
+    dataSafetyLabelDataTypes,
+    dataSafetyLabelPurposes,
+} from './common/consts';
 
 export type { TopChartsRequest, TopChartsOptions, TopChartsResult, TopChartsEntry } from './top-charts';
 export type {
     DataSafetyLabelRequest,
     DataSafetyLabelsOptions,
     DataSafetyLabel,
-    DataSafetyLabelSection,
-    DataSafetyLabelEntry,
-    DataSafetyLabelRow,
+    DataTypeDeclaration,
+    DataSafetyLabelSecurityPracticesDeclarations,
 } from './data-safety';
-export type { CategoryId, CountryCode, LanguageCode } from './common/consts';
+export type {
+    CategoryId,
+    CountryCode,
+    LanguageCode,
+    DataSafetyLabelDataCategory,
+    DataSafetyLabelDataType,
+    DataSafetyLabelPurpose,
+} from './common/consts';

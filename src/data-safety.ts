@@ -1,5 +1,11 @@
 import { batchExecute, RequestPayload } from './common/requests';
-import { LanguageCode } from './common/consts';
+import {
+    dataSafetyLabelPurposes,
+    LanguageCode,
+    DataSafetyLabelDataCategory,
+    DataSafetyLabelDataType,
+    DataSafetyLabelPurpose,
+} from './common/consts';
 import { assert } from './common/assert';
 
 /**
@@ -20,29 +26,33 @@ export type DataSafetyLabelsOptions = {
 };
 
 /**
- * An entry in a row of a data safety label.
+ * An app's declaration for a single data type in a data safety label.
  */
-export type DataSafetyLabelEntry = {
-    /** The entry's heading. */
-    heading: string;
-    /** The entry's description (subheading). */
-    description: string;
-    /** A list of URLs to icons that represent the entry. */
-    icons: string[];
+export type DataTypeDeclaration = {
+    /** The category the data type fits into. */
+    category: DataSafetyLabelDataCategory;
+    /** The data type. */
+    type: DataSafetyLabelDataType;
+    /** The purposes for which the data type is collected or shared. */
+    purposes: DataSafetyLabelPurpose[];
 };
 /**
- * A row in a section of a data safety label.
+ * An app's declared security practices in a data safety label.
  */
-export type DataSafetyLabelRow = {
-    /** The entry this row is about. */
-    category: DataSafetyLabelEntry;
-    /** The data that this row concerns. */
-    data: { type: string; purpose: string }[];
+export type DataSafetyLabelSecurityPracticesDeclarations = {
+    /** Whether data collected or shared by the app uses encryption in transit. */
+    data_encrypted_in_transit: boolean | undefined;
+    /** Whether the app provides a way for users to request deletion of their data. */
+    can_request_data_deletion: boolean | undefined;
+    /**
+     * Whether the developer has reviewed the app's compliance with Google Play's [Families policy
+     * requirements](https://support.google.com/googleplay/android-developer/answer/9893335) (only for
+     * applicable apps).
+     */
+    committed_to_play_families_policy: boolean | undefined;
+    /** Whether the app has been independently validated against a global security standard. */
+    independent_security_review: boolean | undefined;
 };
-/**
- * A section in a data safety label.
- */
-export type DataSafetyLabelSection = DataSafetyLabelRow[];
 /**
  * An app's data safety label.
  */
@@ -69,11 +79,11 @@ export type DataSafetyLabel = {
     /** The URL to the app's privacy policy. */
     privacy_policy_url: string | undefined;
     /** An overview of the data that the app may share with other companies or organizations. */
-    data_shared: DataSafetyLabelSection | undefined;
+    data_shared: DataTypeDeclaration[] | undefined;
     /** An overview of the data the app may collect. */
-    data_collected: DataSafetyLabelSection | undefined;
+    data_collected: DataTypeDeclaration[] | undefined;
     /** An overview of the app's security practices. */
-    security_practices: DataSafetyLabelEntry | undefined;
+    security_practices: DataSafetyLabelSecurityPracticesDeclarations | undefined;
 };
 
 export const dataSafetyLabelsRequestPayload = (request: DataSafetyLabelRequest): RequestPayload => [
@@ -95,11 +105,38 @@ export const parseDataSafetyLabelPayload = (payload: any): DataSafetyLabel | und
         description: c[2][1],
         icons: [c[0][3][2], c[0][10][2]],
     });
-    const parseRow = (r: any) => ({
-        category: parseCategory(r[0]),
-        data: r[4].map((d: any) => ({ type: d[0], purpose: d[2] })),
-    });
-    const parseSection = (d: any, idx: number) => (!d ? undefined : !d[idx][0] ? [] : d[idx][0].map(parseRow));
+    const parseSection = (d: any, idx: number): DataTypeDeclaration[] | undefined =>
+        !d
+            ? undefined
+            : !d[idx][0]
+            ? []
+            : (d[idx][0] as any[]).flatMap((r: any) =>
+                  (r[4] as any[]).map((d: any) => ({
+                      category: parseCategory(r[0]).heading,
+                      type: d[0],
+                      purposes: dataSafetyLabelPurposes.filter((p) => (d[2] as string).includes(p)),
+                  }))
+              );
+
+    const securityPracticesEntries: any[] | undefined = data[137][9]?.[2].map(parseCategory);
+    assert(() => {
+        if (!securityPracticesEntries) return true;
+
+        const knownHeadings = new Set([
+            'Data is encrypted in transit',
+            'You can request that data be deleted',
+            'Data can’t be deleted',
+            'Data isn’t encrypted',
+            'Committed to follow the Play Families Policy',
+            'Independent security review',
+        ]);
+        return securityPracticesEntries?.map((e) => e.heading).every((h) => knownHeadings.has(h));
+    }, 'Only known security practice entries.');
+    const hasSecurityPracticeAttribute = (positiveHeading?: string, negativeHeading?: string) => {
+        if (positiveHeading && securityPracticesEntries?.find((e) => e.heading === positiveHeading)) return true;
+        if (negativeHeading && securityPracticesEntries?.find((e) => e.heading === negativeHeading)) return false;
+        return undefined;
+    };
 
     return {
         name: data[0][0],
@@ -115,7 +152,22 @@ export const parseDataSafetyLabelPayload = (payload: any): DataSafetyLabel | und
         privacy_policy_url: data[99]?.[0][5][2],
         data_shared: parseSection(data[137][4], 0),
         data_collected: parseSection(data[137][4], 1),
-        security_practices: data[137][9]?.[2].map(parseCategory),
+        security_practices: securityPracticesEntries
+            ? {
+                  data_encrypted_in_transit: hasSecurityPracticeAttribute(
+                      'Data is encrypted in transit',
+                      'Data isn’t encrypted'
+                  ),
+                  can_request_data_deletion: hasSecurityPracticeAttribute(
+                      'You can request that data be deleted',
+                      'Data can’t be deleted'
+                  ),
+                  committed_to_play_families_policy: hasSecurityPracticeAttribute(
+                      'Committed to follow the Play Families Policy'
+                  ),
+                  independent_security_review: hasSecurityPracticeAttribute('Independent security review'),
+              }
+            : undefined,
     };
 };
 
