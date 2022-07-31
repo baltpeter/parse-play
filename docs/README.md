@@ -49,7 +49,7 @@ The ID of a category on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:74](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L74)
+[common/consts.ts:74](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L74)
 
 ___
 
@@ -61,7 +61,7 @@ The country code of a country supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:140](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L140)
+[common/consts.ts:140](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L140)
 
 ___
 
@@ -91,7 +91,7 @@ An app's data safety label.
 
 #### Defined in
 
-[data-safety.ts:59](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L59)
+[data-safety.ts:59](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L59)
 
 ___
 
@@ -103,7 +103,7 @@ A category that groups multiple related data types in a data safety label.
 
 #### Defined in
 
-[common/consts.ts:270](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L270)
+[common/consts.ts:270](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L270)
 
 ___
 
@@ -115,7 +115,7 @@ A type of data that can be declared in a data safety label.
 
 #### Defined in
 
-[common/consts.ts:319](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L319)
+[common/consts.ts:319](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L319)
 
 ___
 
@@ -127,7 +127,7 @@ A purpose for which data collection or sharing can be declared in a data safety 
 
 #### Defined in
 
-[common/consts.ts:337](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L337)
+[common/consts.ts:337](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L337)
 
 ___
 
@@ -145,7 +145,7 @@ Parameters for a single data safety label request.
 
 #### Defined in
 
-[data-safety.ts:14](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L14)
+[data-safety.ts:14](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L14)
 
 ___
 
@@ -166,7 +166,7 @@ An app's declared security practices in a data safety label.
 
 #### Defined in
 
-[data-safety.ts:42](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L42)
+[data-safety.ts:42](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L42)
 
 ___
 
@@ -184,7 +184,7 @@ Parameters for all data safety label requests in a [fetchDataSafetyLabels](READM
 
 #### Defined in
 
-[data-safety.ts:23](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L23)
+[data-safety.ts:23](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L23)
 
 ___
 
@@ -204,7 +204,7 @@ An app's declaration for a single data type in a data safety label.
 
 #### Defined in
 
-[data-safety.ts:31](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L31)
+[data-safety.ts:31](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L31)
 
 ___
 
@@ -216,7 +216,7 @@ The language code of a language supported on the Play Store.
 
 #### Defined in
 
-[common/consts.ts:240](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L240)
+[common/consts.ts:240](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L240)
 
 ___
 
@@ -240,7 +240,7 @@ A single app and its associated metadata on a top chart.
 | `icon_url` | `string` | A URL to the app's icon. |
 | `name` | `string` | The app's name. |
 | `position` | `number` | The app's position on the respective top chart. |
-| `price` | `string` \| `undefined` | The app's price. |
+| `price` | `string` \| `undefined` | The app's price. Can be undefined for pre-release apps. |
 | `rating` | `number` \| `undefined` | The app's review rating. |
 | `screenshot_urls` | `string`[] | URLs to screenshots of the app. |
 | `store_path` | `string` | The relative path of the app on the Play Store website. |
@@ -248,7 +248,7 @@ A single app and its associated metadata on a top chart.
 
 #### Defined in
 
-[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/top-charts.ts#L32)
+[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/bb044be/src/top-charts.ts#L32)
 
 ___
 
@@ -267,7 +267,7 @@ Parameters for all top charts requests in a [fetchTopCharts](README.md#fetchtopc
 
 #### Defined in
 
-[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/top-charts.ts#L22)
+[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/bb044be/src/top-charts.ts#L22)
 
 ___
 
@@ -287,7 +287,7 @@ Parameters for a single top charts request.
 
 #### Defined in
 
-[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/top-charts.ts#L8)
+[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/bb044be/src/top-charts.ts#L8)
 
 ___
 
@@ -299,7 +299,7 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/top-charts.ts#L67)
+[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/bb044be/src/top-charts.ts#L67)
 
 ## Variables
 
@@ -313,7 +313,7 @@ Taken from the official documentation: <https://web.archive.org/web/202207011224
 
 #### Defined in
 
-[common/consts.ts:251](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L251)
+[common/consts.ts:251](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L251)
 
 ___
 
@@ -327,7 +327,7 @@ Taken from the official documentation: <https://web.archive.org/web/202207011224
 
 #### Defined in
 
-[common/consts.ts:276](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L276)
+[common/consts.ts:276](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L276)
 
 ___
 
@@ -341,7 +341,7 @@ Taken from the official documentation: <https://web.archive.org/web/202207011224
 
 #### Defined in
 
-[common/consts.ts:325](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/common/consts.ts#L325)
+[common/consts.ts:325](https://github.com/baltpeter/parse-play/blob/bb044be/src/common/consts.ts#L325)
 
 ## Functions
 
@@ -368,7 +368,7 @@ The data safety label.
 
 #### Defined in
 
-[data-safety.ts:183](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L183)
+[data-safety.ts:183](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L183)
 
 ▸ **fetchDataSafetyLabels**(`requests`, `options`): `Promise`<([`DataSafetyLabel`](README.md#datasafetylabel) \| `undefined`)[]\>
 
@@ -392,7 +392,7 @@ An array of the data safety labels, in the same order as the requests.
 
 #### Defined in
 
-[data-safety.ts:197](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/data-safety.ts#L197)
+[data-safety.ts:197](https://github.com/baltpeter/parse-play/blob/bb044be/src/data-safety.ts#L197)
 
 ___
 
@@ -419,7 +419,7 @@ The top chart.
 
 #### Defined in
 
-[top-charts.ts:140](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/top-charts.ts#L140)
+[top-charts.ts:142](https://github.com/baltpeter/parse-play/blob/bb044be/src/top-charts.ts#L142)
 
 ▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
@@ -443,4 +443,4 @@ An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[top-charts.ts:154](https://github.com/baltpeter/parse-play/blob/6cb45c0/src/top-charts.ts#L154)
+[top-charts.ts:156](https://github.com/baltpeter/parse-play/blob/bb044be/src/top-charts.ts#L156)
