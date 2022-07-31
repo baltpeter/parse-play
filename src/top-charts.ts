@@ -41,7 +41,7 @@ export type TopChartsEntry = {
     /** The app's name. */
     name: string;
     /** The app's review rating. */
-    rating: number;
+    rating: number | undefined;
     /** The app's category. */
     category: string;
     /** The app's price. */
