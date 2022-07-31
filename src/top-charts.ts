@@ -44,7 +44,7 @@ export type TopChartsEntry = {
     rating: number | undefined;
     /** The app's category. */
     category: string;
-    /** The app's price. */
+    /** The app's price. Can be undefined for pre-release apps. */
     price: string | undefined;
     /** A URL to the Play Store website to buy the app. */
     buy_url: string | undefined;
@@ -73,7 +73,9 @@ export const topChartsRequestPayload = (request: TopChartsRequest): RequestPaylo
     JSON.stringify([[null, [[null, [null, request.count]], null, null, [113]], [2, request.chart, request.category]]]),
 ];
 
-export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => ({
+const formatCurrency = (value: number, currency: string, options: TopChartsOptions) =>
+    new Intl.NumberFormat(`${options.language}-${options.country}`, { style: 'currency', currency }).format(value);
+export const parseTopChartEntry = (entry: any, idx: number, options: TopChartsOptions): TopChartsEntry => ({
     position: idx + 1,
     app_id: entry[0][0],
     icon_url: entry[1][3][2],
@@ -81,7 +83,7 @@ export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => (
     name: entry[3],
     rating: entry[4][1],
     category: entry[5],
-    price: entry[8]?.[1][0].join(' ').trim(),
+    price: entry[8] ? formatCurrency(entry[8]?.[1][0][0] / 1e6, entry[8]?.[1][0][1], options) : undefined,
     buy_url: entry[8]?.[6][5][2],
     store_path: entry[10][4][2],
     trailer_url: entry[12]?.[0][0][3][2],
@@ -91,7 +93,7 @@ export const parseTopChartEntry = (entry: any, idx: number): TopChartsEntry => (
     cover_image_url: entry[22][3]?.[2],
 });
 
-export const parseTopChartPayload = (data: any): TopChartsEntry[] | undefined => {
+export const parseTopChartPayload = (data: any, options: TopChartsOptions): TopChartsEntry[] | undefined => {
     assert(() => data.length === 1, 'One top-level array entry.');
     if (data[0][1] === null) return undefined;
 
@@ -122,7 +124,7 @@ export const parseTopChartPayload = (data: any): TopChartsEntry[] | undefined =>
             'Weird second meta object only has category.'
         );
 
-        return parseTopChartEntry(meta, idx);
+        return parseTopChartEntry(meta, idx, options);
     });
 
     return parsed;
@@ -161,6 +163,6 @@ export async function fetchTopCharts(requests: TopChartsRequest | TopChartsReque
         _requests.map((r) => topChartsRequestPayload(r)),
         { hl: options.language, gl: options.country }
     );
-    const res = data.map(parseTopChartPayload);
+    const res = data.map((d) => parseTopChartPayload(d, options));
     return _requests.length === 1 ? res[0] : res;
 }
