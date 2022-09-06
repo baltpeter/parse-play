@@ -1,6 +1,6 @@
-parse-play - v1.0.1
+parse-play - v2.0.0
 
-# parse-play - v1.0.1
+# parse-play - v2.0.0
 
 ## Table of contents
 
