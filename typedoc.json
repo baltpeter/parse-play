@@ -7,5 +7,6 @@
     "readme": "none",
     "excludeNotDocumented": true,
     "includeVersion": true,
-    "githubPages": false
+    "githubPages": false,
+    "gitRevision": "main"
 }
