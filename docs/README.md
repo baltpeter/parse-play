@@ -91,7 +91,7 @@ An app's data safety label.
 
 #### Defined in
 
-[data-safety.ts:59](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L59)
+[data-safety.ts:61](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L61)
 
 ___
 
@@ -166,7 +166,7 @@ An app's declared security practices in a data safety label.
 
 #### Defined in
 
-[data-safety.ts:42](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L42)
+[data-safety.ts:44](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L44)
 
 ___
 
@@ -199,6 +199,7 @@ An app's declaration for a single data type in a data safety label.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `category` | [`DataSafetyLabelDataCategory`](README.md#datasafetylabeldatacategory) | The category the data type fits into. |
+| `optional` | `boolean` | Whether the data type is marked as optional. |
 | `purposes` | [`DataSafetyLabelPurpose`](README.md#datasafetylabelpurpose)[] | The purposes for which the data type is collected or shared. |
 | `type` | [`DataSafetyLabelDataType`](README.md#datasafetylabeldatatype) | The data type. |
 
@@ -368,7 +369,7 @@ The data safety label.
 
 #### Defined in
 
-[data-safety.ts:183](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L183)
+[data-safety.ts:186](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L186)
 
 ▸ **fetchDataSafetyLabels**(`requests`, `options`): `Promise`<([`DataSafetyLabel`](README.md#datasafetylabel) \| `undefined`)[]\>
 
@@ -392,7 +393,7 @@ An array of the data safety labels, in the same order as the requests.
 
 #### Defined in
 
-[data-safety.ts:197](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L197)
+[data-safety.ts:200](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L200)
 
 ___
 

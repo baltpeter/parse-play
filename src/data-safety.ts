@@ -35,6 +35,8 @@ export type DataTypeDeclaration = {
     type: DataSafetyLabelDataType;
     /** The purposes for which the data type is collected or shared. */
     purposes: DataSafetyLabelPurpose[];
+    /** Whether the data type is marked as optional. */
+    optional: boolean;
 };
 /**
  * An app's declared security practices in a data safety label.
@@ -115,6 +117,7 @@ export const parseDataSafetyLabelPayload = (payload: any): DataSafetyLabel | und
                       category: parseCategory(r[0]).heading,
                       type: d[0],
                       purposes: dataSafetyLabelPurposes.filter((p) => (d[2] as string).includes(p)),
+                      optional: d[1],
                   }))
               );
 
