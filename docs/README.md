@@ -91,7 +91,7 @@ An app's data safety label.
 
 #### Defined in
 
-[data-safety.ts:61](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L61)
+[endpoints/data-safety.ts:61](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L61)
 
 ___
 
@@ -145,7 +145,7 @@ Parameters for a single data safety label request.
 
 #### Defined in
 
-[data-safety.ts:14](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L14)
+[endpoints/data-safety.ts:14](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L14)
 
 ___
 
@@ -166,7 +166,7 @@ An app's declared security practices in a data safety label.
 
 #### Defined in
 
-[data-safety.ts:44](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L44)
+[endpoints/data-safety.ts:44](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L44)
 
 ___
 
@@ -184,7 +184,7 @@ Parameters for all data safety label requests in a [fetchDataSafetyLabels](READM
 
 #### Defined in
 
-[data-safety.ts:23](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L23)
+[endpoints/data-safety.ts:23](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L23)
 
 ___
 
@@ -205,7 +205,7 @@ An app's declaration for a single data type in a data safety label.
 
 #### Defined in
 
-[data-safety.ts:31](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L31)
+[endpoints/data-safety.ts:31](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L31)
 
 ___
 
@@ -249,7 +249,7 @@ A single app and its associated metadata on a top chart.
 
 #### Defined in
 
-[top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/main/src/top-charts.ts#L32)
+[endpoints/top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L32)
 
 ___
 
@@ -268,7 +268,7 @@ Parameters for all top charts requests in a [fetchTopCharts](README.md#fetchtopc
 
 #### Defined in
 
-[top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/main/src/top-charts.ts#L22)
+[endpoints/top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L22)
 
 ___
 
@@ -288,7 +288,7 @@ Parameters for a single top charts request.
 
 #### Defined in
 
-[top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/main/src/top-charts.ts#L8)
+[endpoints/top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L8)
 
 ___
 
@@ -300,7 +300,7 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/main/src/top-charts.ts#L67)
+[endpoints/top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L67)
 
 ## Variables
 
@@ -369,7 +369,7 @@ The data safety label.
 
 #### Defined in
 
-[data-safety.ts:186](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L186)
+[endpoints/data-safety.ts:186](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L186)
 
 ▸ **fetchDataSafetyLabels**(`requests`, `options`): `Promise`<([`DataSafetyLabel`](README.md#datasafetylabel) \| `undefined`)[]\>
 
@@ -393,7 +393,7 @@ An array of the data safety labels, in the same order as the requests.
 
 #### Defined in
 
-[data-safety.ts:200](https://github.com/baltpeter/parse-play/blob/main/src/data-safety.ts#L200)
+[endpoints/data-safety.ts:200](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L200)
 
 ___
 
@@ -420,7 +420,7 @@ The top chart.
 
 #### Defined in
 
-[top-charts.ts:142](https://github.com/baltpeter/parse-play/blob/main/src/top-charts.ts#L142)
+[endpoints/top-charts.ts:142](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L142)
 
 ▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
@@ -444,4 +444,4 @@ An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[top-charts.ts:156](https://github.com/baltpeter/parse-play/blob/main/src/top-charts.ts#L156)
+[endpoints/top-charts.ts:156](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L156)

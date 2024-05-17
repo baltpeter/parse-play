@@ -1,6 +1,6 @@
-import { batchExecute, RequestPayload } from './common/requests';
-import { CategoryId, LanguageCode, CountryCode } from './common/consts';
-import { assert } from './common/assert';
+import { batchExecute, RequestPayload } from '../common/requests';
+import { CategoryId, LanguageCode, CountryCode } from '../common/consts';
+import { assert } from '../common/assert';
 
 /**
  * Parameters for a single top charts request.
