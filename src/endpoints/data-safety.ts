@@ -1,12 +1,12 @@
-import { batchExecute, RequestPayload } from './common/requests';
+import { batchExecute, RequestPayload } from '../common/requests';
 import {
     dataSafetyLabelPurposes,
     LanguageCode,
     DataSafetyLabelDataCategory,
     DataSafetyLabelDataType,
     DataSafetyLabelPurpose,
-} from './common/consts';
-import { assert } from './common/assert';
+} from '../common/consts';
+import { assert } from '../common/assert';
 
 /**
  * Parameters for a single data safety label request.
