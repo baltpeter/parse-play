@@ -4,6 +4,7 @@ export {
     parseDataSafetyLabelPayload,
     dataSafetyLabelsRequestPayload,
 } from './endpoints/data-safety';
+export { searchApps, parseSearchAppsPayload, searchAppsRequestPayload } from './endpoints/search';
 
 export { batchExecute } from './common/requests';
 export {
@@ -14,6 +15,7 @@ export {
     dataSafetyLabelDataTypes,
     dataSafetyLabelPurposes,
 } from './common/consts';
+export { parseAppEntry } from './common/data-format';
 
 export type { TopChartsRequest, TopChartsOptions, TopChartsResult, TopChartsEntry } from './endpoints/top-charts';
 export type {
@@ -23,6 +25,7 @@ export type {
     DataTypeDeclaration,
     DataSafetyLabelSecurityPracticesDeclarations,
 } from './endpoints/data-safety';
+export type { SearchAppsRequest, SearchAppsOptions, SearchAppsResults } from './endpoints/search';
 export type {
     CategoryId,
     CountryCode,
@@ -31,3 +34,4 @@ export type {
     DataSafetyLabelDataType,
     DataSafetyLabelPurpose,
 } from './common/consts';
+export type { AppMetadata } from './common/data-format';

@@ -12,6 +12,7 @@ parse-play - v2.1.0
 
 ### Type Aliases
 
+- [AppMetadata](README.md#appmetadata)
 - [CategoryId](README.md#categoryid)
 - [CountryCode](README.md#countrycode)
 - [DataSafetyLabel](README.md#datasafetylabel)
@@ -23,6 +24,9 @@ parse-play - v2.1.0
 - [DataSafetyLabelsOptions](README.md#datasafetylabelsoptions)
 - [DataTypeDeclaration](README.md#datatypedeclaration)
 - [LanguageCode](README.md#languagecode)
+- [SearchAppsOptions](README.md#searchappsoptions)
+- [SearchAppsRequest](README.md#searchappsrequest)
+- [SearchAppsResults](README.md#searchappsresults)
 - [TopChartsEntry](README.md#topchartsentry)
 - [TopChartsOptions](README.md#topchartsoptions)
 - [TopChartsRequest](README.md#topchartsrequest)
@@ -38,8 +42,41 @@ parse-play - v2.1.0
 
 - [fetchDataSafetyLabels](README.md#fetchdatasafetylabels)
 - [fetchTopCharts](README.md#fetchtopcharts)
+- [searchApps](README.md#searchapps)
 
 ## Type Aliases
+
+### AppMetadata
+
+Ƭ **AppMetadata**: `Object`
+
+A single app and its associated metadata.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `app_id` | `string` | The app's bundle ID. |
+| `buy_url` | `string` \| `undefined` | A URL to the Play Store website to buy the app. |
+| `category` | `string` | The app's category. |
+| `cover_image_url` | `string` \| `undefined` | A URL to the app's cover image. |
+| `description` | `string` | The app's description. |
+| `developer` | `string` | The app's developer. |
+| `downloads` | `string` | The approximate download count of the app, as displayed on the Play Store website. |
+| `icon_url` | `string` | A URL to the app's icon. |
+| `name` | `string` | The app's name. |
+| `position` | `number` | The app's position in a list (top chart, search results). |
+| `price` | `string` \| `undefined` | The app's price. Can be undefined for pre-release apps. |
+| `rating` | `number` \| `undefined` | The app's review rating. |
+| `screenshot_urls` | `string`[] | URLs to screenshots of the app. |
+| `store_path` | `string` | The relative path of the app on the Play Store website. |
+| `trailer_url` | `string` \| `undefined` | A URL to a video trailer for the app. |
+
+#### Defined in
+
+[common/data-format.ts:6](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L6)
+
+___
 
 ### CategoryId
 
@@ -221,35 +258,64 @@ The language code of a language supported on the Play Store.
 
 ___
 
-### TopChartsEntry
+### SearchAppsOptions
 
-Ƭ **TopChartsEntry**: `Object`
+Ƭ **SearchAppsOptions**: `Object`
 
-A single app and its associated metadata on a top chart.
+Parameters for all search apps requests in a [searchApps](README.md#searchapps) call.
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `app_id` | `string` | The app's bundle ID. |
-| `buy_url` | `string` \| `undefined` | A URL to the Play Store website to buy the app. |
-| `category` | `string` | The app's category. |
-| `cover_image_url` | `string` \| `undefined` | A URL to the app's cover image. |
-| `description` | `string` | The app's description. |
-| `developer` | `string` | The app's developer. |
-| `downloads` | `string` | The approximate download count of the app, as displayed on the Play Store website. |
-| `icon_url` | `string` | A URL to the app's icon. |
-| `name` | `string` | The app's name. |
-| `position` | `number` | The app's position on the respective top chart. |
-| `price` | `string` \| `undefined` | The app's price. Can be undefined for pre-release apps. |
-| `rating` | `number` \| `undefined` | The app's review rating. |
-| `screenshot_urls` | `string`[] | URLs to screenshots of the app. |
-| `store_path` | `string` | The relative path of the app on the Play Store website. |
-| `trailer_url` | `string` \| `undefined` | A URL to a video trailer for the app. |
+| `country` | [`CountryCode`](README.md#countrycode) | The country version of the Play Store to search in. |
+| `language` | [`LanguageCode`](README.md#languagecode) | The language for descriptions, etc. |
 
 #### Defined in
 
-[endpoints/top-charts.ts:32](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L32)
+[endpoints/search.ts:16](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L16)
+
+___
+
+### SearchAppsRequest
+
+Ƭ **SearchAppsRequest**: `Object`
+
+Parameters for a search apps request.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `searchTerm` | `string` | The term to search for. |
+
+#### Defined in
+
+[endpoints/search.ts:9](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L9)
+
+___
+
+### SearchAppsResults
+
+Ƭ **SearchAppsResults**: [`AppMetadata`](README.md#appmetadata)[]
+
+A list of the search results.
+
+#### Defined in
+
+[endpoints/search.ts:26](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L26)
+
+___
+
+### TopChartsEntry
+
+Ƭ **TopChartsEntry**: [`AppMetadata`](README.md#appmetadata)
+
+A single app and its associated metadata on a top chart.
+
+#### Defined in
+
+[endpoints/top-charts.ts:33](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L33)
 
 ___
 
@@ -268,7 +334,7 @@ Parameters for all top charts requests in a [fetchTopCharts](README.md#fetchtopc
 
 #### Defined in
 
-[endpoints/top-charts.ts:22](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L22)
+[endpoints/top-charts.ts:23](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L23)
 
 ___
 
@@ -288,7 +354,7 @@ Parameters for a single top charts request.
 
 #### Defined in
 
-[endpoints/top-charts.ts:8](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L8)
+[endpoints/top-charts.ts:9](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L9)
 
 ___
 
@@ -300,7 +366,7 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[endpoints/top-charts.ts:67](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L67)
+[endpoints/top-charts.ts:37](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L37)
 
 ## Variables
 
@@ -420,7 +486,7 @@ The top chart.
 
 #### Defined in
 
-[endpoints/top-charts.ts:142](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L142)
+[endpoints/top-charts.ts:96](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L96)
 
 ▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
@@ -444,4 +510,55 @@ An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[endpoints/top-charts.ts:156](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L156)
+[endpoints/top-charts.ts:110](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L110)
+
+___
+
+### searchApps
+
+▸ **searchApps**(`request`, `options`): `Promise`<[`SearchAppsResults`](README.md#searchappsresults) \| `undefined`\>
+
+Search for apps on the Google Play Stroe.
+
+This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `lGYRle`.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `request` | [`SearchAppsRequest`](README.md#searchappsrequest) \| [[`SearchAppsRequest`](README.md#searchappsrequest)] | The parameters for what to search for. |
+| `options` | [`SearchAppsOptions`](README.md#searchappsoptions) | Language options. |
+
+#### Returns
+
+`Promise`<[`SearchAppsResults`](README.md#searchappsresults) \| `undefined`\>
+
+The search results.
+
+#### Defined in
+
+[endpoints/search.ts:131](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L131)
+
+▸ **searchApps**(`requests`, `options`): `Promise`<([`SearchAppsResults`](README.md#searchappsresults) \| `undefined`)[]\>
+
+Same as [searchApps](README.md#searchapps) but for doing multiple searches at once. The search results are fetched in a single API
+request.
+
+**`see`** [searchApps](README.md#searchapps)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `requests` | [`SearchAppsRequest`](README.md#searchappsrequest)[] | An array of search apps requests. |
+| `options` | [`SearchAppsOptions`](README.md#searchappsoptions) | The options for _all_ requests. |
+
+#### Returns
+
+`Promise`<([`SearchAppsResults`](README.md#searchappsresults) \| `undefined`)[]\>
+
+An array of the search results, in the same order as the requests.
+
+#### Defined in
+
+[endpoints/search.ts:145](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L145)
