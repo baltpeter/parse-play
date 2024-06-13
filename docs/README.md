@@ -12,9 +12,13 @@ parse-play - v2.2.0
 
 ### Type Aliases
 
+- [AppDetailsOptions](README.md#appdetailsoptions)
+- [AppDetailsRequest](README.md#appdetailsrequest)
+- [AppDetailsResult](README.md#appdetailsresult)
 - [AppMetadata](README.md#appmetadata)
 - [AppMetadataFull](README.md#appmetadatafull)
 - [AppMetadataProperty](README.md#appmetadataproperty)
+- [AppMetadataPropertyFetchAppDetails](README.md#appmetadatapropertyfetchappdetails)
 - [AppMetadataPropertySearch](README.md#appmetadatapropertysearch)
 - [AppMetadataPropertyTopCharts](README.md#appmetadatapropertytopcharts)
 - [CategoryId](README.md#categoryid)
@@ -28,6 +32,7 @@ parse-play - v2.2.0
 - [DataSafetyLabelsOptions](README.md#datasafetylabelsoptions)
 - [DataTypeDeclaration](README.md#datatypedeclaration)
 - [LanguageCode](README.md#languagecode)
+- [PermissionGroup](README.md#permissiongroup)
 - [SearchAppsOptions](README.md#searchappsoptions)
 - [SearchAppsRequest](README.md#searchappsrequest)
 - [SearchAppsResults](README.md#searchappsresults)
@@ -41,16 +46,68 @@ parse-play - v2.2.0
 - [dataSafetyLabelDataCategories](README.md#datasafetylabeldatacategories)
 - [dataSafetyLabelDataTypes](README.md#datasafetylabeldatatypes)
 - [dataSafetyLabelPurposes](README.md#datasafetylabelpurposes)
+- [fetchAppDetailsMetadataProperties](README.md#fetchappdetailsmetadataproperties)
 - [searchAppMetadataProperties](README.md#searchappmetadataproperties)
 - [topChartsAppMetadataProperties](README.md#topchartsappmetadataproperties)
 
 ### Functions
 
+- [fetchAppDetails](README.md#fetchappdetails)
 - [fetchDataSafetyLabels](README.md#fetchdatasafetylabels)
 - [fetchTopCharts](README.md#fetchtopcharts)
+- [parseAppEntry](README.md#parseappentry)
 - [searchApps](README.md#searchapps)
 
 ## Type Aliases
+
+### AppDetailsOptions
+
+Ƭ **AppDetailsOptions**: `Object`
+
+Parameters for all fetch app details requests in a [fetchAppDetails](README.md#fetchappdetails) call.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `country` | [`CountryCode`](README.md#countrycode) | The country version of the Play Store to fetch from. |
+| `language` | [`LanguageCode`](README.md#languagecode) | The language for descriptions, etc. |
+
+#### Defined in
+
+[endpoints/app-details.ts:13](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L13)
+
+___
+
+### AppDetailsRequest
+
+Ƭ **AppDetailsRequest**: `Object`
+
+Parameters for a fetch app details request.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `appId` | `string` | The app ID. |
+
+#### Defined in
+
+[endpoints/app-details.ts:8](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L8)
+
+___
+
+### AppDetailsResult
+
+Ƭ **AppDetailsResult**: [`AppMetadata`](README.md#appmetadata)<[`AppMetadataPropertyFetchAppDetails`](README.md#appmetadatapropertyfetchappdetails)\>
+
+The result of a fetch app details request.
+
+#### Defined in
+
+[endpoints/app-details.ts:58](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L58)
+
+___
 
 ### AppMetadata
 
@@ -66,7 +123,7 @@ The metadata for a single app. The available properties depend on which endpoint
 
 #### Defined in
 
-[common/data-format.ts:42](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L42)
+[common/data-format.ts:112](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L112)
 
 ___
 
@@ -83,23 +140,50 @@ this, see [AppMetadata](README.md#appmetadata).
 | :------ | :------ | :------ |
 | `app_id` | `string` | The app's bundle ID. |
 | `buy_url` | `string` \| `undefined` | A URL to the Play Store website to buy the app. |
-| `category` | `string` | The app's category. |
+| `category` | `string` | The app's main category. |
+| `content_rating?` | { `icon_url`: `string` ; `interactive_elements?`: `string` ; `label`: `string`  } | The app's content rating. |
+| `content_rating.icon_url` | `string` | The URL to an icon for the content rating. |
+| `content_rating.interactive_elements?` | `string` | A description of interactive elements in the app. |
+| `content_rating.label` | `string` | The label for the content rating. |
 | `cover_image_url` | `string` \| `undefined` | A URL to the app's cover image. |
+| `data_collected` | [`DataTypeDeclaration`](README.md#datatypedeclaration)[] \| `undefined` | An overview of the data the app may collect. |
+| `data_shared` | [`DataTypeDeclaration`](README.md#datatypedeclaration)[] \| `undefined` | An overview of the data that the app may share with other companies or organizations. |
 | `description` | `string` | The app's description. |
 | `developer` | `string` | The app's developer. |
-| `downloads` | `string` | The approximate download count of the app, as displayed on the Play Store website. |
+| `developer_address` | `string` \| `undefined` | The developer's address. |
+| `developer_email` | `string` | The developer's email address. |
+| `developer_path` | `string` | The relative path of the developer's page on the Play Store website. |
+| `developer_website_url` | `string` \| `undefined` | The URL to the developer's website. |
+| `downloads` | `string` | The approximate download count of the app as a string, as displayed on the Play Store website. |
+| `downloads_exact` | `number` | The exact download count of the app. |
 | `icon_url` | `string` | A URL to the app's icon. |
+| `in_app_purchases?` | `string` | The cost of in-app purchases for the app. |
 | `name` | `string` | The app's name. |
+| `offered_by` | `string` | The company distributing the app on the Play Store. |
+| `permissions` | [`PermissionGroup`](README.md#permissiongroup)[] | The app's permissions, grouped by category. |
 | `position` | `number` | The app's position in a list (top chart, search results). |
 | `price` | `string` \| `undefined` | The app's price. Can be undefined for pre-release apps. |
+| `privacy_policy_url` | `string` \| `undefined` | The URL to the app's privacy policy. |
 | `rating` | `number` \| `undefined` | The app's review rating. |
+| `released_on?` | `Date` | The date when the app was first published. |
+| `requires_android?` | {} | The app's required version of Android. |
 | `screenshot_urls` | `string`[] | URLs to screenshots of the app. |
+| `security_practices` | [`DataSafetyLabelSecurityPracticesDeclarations`](README.md#datasafetylabelsecuritypracticesdeclarations) \| `undefined` | An overview of the app's security practices. |
 | `store_path` | `string` | The relative path of the app on the Play Store website. |
+| `tags?` | { `id?`: `string` ; `name`: `string` ; `path`: `string`  } | A list of the app's categories and related search terms. |
+| `tags.id?` | `string` | A machine-readable ID for the tag. |
+| `tags.name` | `string` | The name/label of the tag. |
+| `tags.path` | `string` | The relative path of the category/search page on the Play Store website. |
+| `top_chart_placement?` | { `label`: `string` ; `placement`: `string`  } | The app's placement on a top chart. |
+| `top_chart_placement.label` | `string` | The label for the placement. |
+| `top_chart_placement.placement` | `string` | The app's position in the top chart. |
 | `trailer_url` | `string` \| `undefined` | A URL to a video trailer for the app. |
+| `updated_on` | `Date` | The date when the app was last updated. |
+| `version?` | `string` | The app's version. |
 
 #### Defined in
 
-[common/data-format.ts:7](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L7)
+[common/data-format.ts:20](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L20)
 
 ___
 
@@ -111,7 +195,19 @@ A property that can be present in the metadata of an app.
 
 #### Defined in
 
-[common/data-format.ts:40](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L40)
+[common/data-format.ts:110](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L110)
+
+___
+
+### AppMetadataPropertyFetchAppDetails
+
+Ƭ **AppMetadataPropertyFetchAppDetails**: typeof [`fetchAppDetailsMetadataProperties`](README.md#fetchappdetailsmetadataproperties)[`number`]
+
+A property present when fetching app details.
+
+#### Defined in
+
+[endpoints/app-details.ts:56](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L56)
 
 ___
 
@@ -319,6 +415,27 @@ The language code of a language supported on the Play Store.
 
 ___
 
+### PermissionGroup
+
+Ƭ **PermissionGroup**: `Object`
+
+A group of related permissions the app has access to.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `icon_url?` | `string` | The URL to the group's icon. |
+| `id?` | `string` | A machine-readable ID for the group. |
+| `name?` | `string` | The name/label of the group. |
+| `permissions` | `string`[] | The detailed permissions in this group the app has access to. |
+
+#### Defined in
+
+[common/data-format.ts:5](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L5)
+
+___
+
 ### SearchAppsOptions
 
 Ƭ **SearchAppsOptions**: `Object`
@@ -473,6 +590,18 @@ Taken from the official documentation: <https://web.archive.org/web/202207011224
 
 ___
 
+### fetchAppDetailsMetadataProperties
+
+• `Const` **fetchAppDetailsMetadataProperties**: readonly [``"app_id"``, ``"name"``, ``"content_rating"``, ``"released_on"``, ``"downloads"``, ``"downloads_exact"``, ``"in_app_purchases"``, ``"offered_by"``, ``"rating"``, ``"price"``, ``"buy_url"``, ``"top_chart_placement"``, ``"developer"``, ``"developer_path"``, ``"developer_website_url"``, ``"developer_email"``, ``"developer_address"``, ``"description"``, ``"permissions"``, ``"screenshot_urls"``, ``"category"``, ``"icon_url"``, ``"cover_image_url"``, ``"privacy_policy_url"``, ``"trailer_url"``, ``"tags"``, ``"data_shared"``, ``"data_collected"``, ``"security_practices"``, ``"version"``, ``"requires_android"``, ``"updated_on"``]
+
+The properties present when fetching app details.
+
+#### Defined in
+
+[endpoints/app-details.ts:21](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L21)
+
+___
+
 ### searchAppMetadataProperties
 
 • `Const` **searchAppMetadataProperties**: readonly [``"position"``, ``"app_id"``, ``"icon_url"``, ``"screenshot_urls"``, ``"name"``, ``"rating"``, ``"category"``, ``"price"``, ``"buy_url"``, ``"store_path"``, ``"trailer_url"``, ``"description"``, ``"developer"``, ``"downloads"``, ``"cover_image_url"``]
@@ -496,6 +625,57 @@ The properties present in the metadata of each app in the top chart.
 [endpoints/top-charts.ts:31](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L31)
 
 ## Functions
+
+### fetchAppDetails
+
+▸ **fetchAppDetails**(`request`, `options`): `Promise`<[`AppDetailsResult`](README.md#appdetailsresult)\>
+
+Fetch the details/metadata of an app on the Google Play Store.
+
+This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `Ws7gDc`.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `request` | [`AppDetailsRequest`](README.md#appdetailsrequest) \| [[`AppDetailsRequest`](README.md#appdetailsrequest)] | The parameters of which app to fetch the details of. |
+| `options` | [`AppDetailsOptions`](README.md#appdetailsoptions) | Language and country options. |
+
+#### Returns
+
+`Promise`<[`AppDetailsResult`](README.md#appdetailsresult)\>
+
+The app details.
+
+#### Defined in
+
+[endpoints/app-details.ts:243](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L243)
+
+▸ **fetchAppDetails**(`requests`, `options`): `Promise`<[`AppDetailsResult`](README.md#appdetailsresult)[]\>
+
+Same as [fetchAppDetails](README.md#fetchappdetails) but for fetching the details of multiple apps at once. The details are all fetched in
+a single API request.
+
+**`see`** [fetchAppDetails](README.md#fetchappdetails)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `requests` | [`AppDetailsRequest`](README.md#appdetailsrequest)[] | An array of fetch app details requests. |
+| `options` | [`AppDetailsOptions`](README.md#appdetailsoptions) | The options for _all_ requests. |
+
+#### Returns
+
+`Promise`<[`AppDetailsResult`](README.md#appdetailsresult)[]\>
+
+An array of the app details, in the same order as the requests.
+
+#### Defined in
+
+[endpoints/app-details.ts:257](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L257)
+
+___
 
 ### fetchDataSafetyLabels
 
@@ -596,6 +776,36 @@ An array of the top charts, in the same order as the requests.
 #### Defined in
 
 [endpoints/top-charts.ts:131](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L131)
+
+___
+
+### parseAppEntry
+
+▸ **parseAppEntry**<`P`\>(`entry`, `properties`, `options`): [`AppMetadata`](README.md#appmetadata)<`P`\>
+
+Parse an app entry in a search or top chart response.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `P` | extends keyof [`AppMetadataFull`](README.md#appmetadatafull) |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `entry` | `any` |
+| `properties` | `P`[] \| readonly `P`[] |
+| `options` | `Object` |
+
+#### Returns
+
+[`AppMetadata`](README.md#appmetadata)<`P`\>
+
+#### Defined in
+
+[common/data-format.ts:139](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L139)
 
 ___
 
