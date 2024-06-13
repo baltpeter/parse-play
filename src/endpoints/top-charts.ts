@@ -27,10 +27,31 @@ export type TopChartsOptions = {
     language: LanguageCode;
 };
 
+/** The properties present in the metadata of each app in the top chart. */
+export const topChartsAppMetadataProperties = [
+    'position',
+    'app_id',
+    'icon_url',
+    'screenshot_urls',
+    'name',
+    'rating',
+    'category',
+    'price',
+    'buy_url',
+    'store_path',
+    'trailer_url',
+    'description',
+    'developer',
+    'downloads',
+    'cover_image_url',
+] as const;
+/** A property present in the metadata of each app in the top chart. */
+export type AppMetadataPropertyTopCharts = typeof topChartsAppMetadataProperties[number];
+
 /**
  * A single app and its associated metadata on a top chart.
  */
-export type TopChartsEntry = AppMetadata;
+export type TopChartsEntry = AppMetadata<AppMetadataPropertyTopCharts>;
 /**
  * A list of the entries on the respective top chart.
  */
@@ -78,7 +99,7 @@ export const parseTopChartPayload = (data: any, options: TopChartsOptions): TopC
             'Weird second meta object only has category.'
         );
 
-        return parseAppEntry(meta, idx, options);
+        return parseAppEntry(meta, topChartsAppMetadataProperties, { ...options, idx });
     });
 
     return parsed;

@@ -1,9 +1,10 @@
 import type { LanguageCode, CountryCode } from './consts';
 
 /**
- * A single app and its associated metadata.
+ * The full metadata that can theoretically be fetched for an app. The individual endpoints will only return a subset of
+ * this, see {@link AppMetadata}.
  */
-export type AppMetadata = {
+export type AppMetadataFull = {
     /** The app's position in a list (top chart, search results). */
     position: number;
     /** The app's bundle ID. */
@@ -35,30 +36,50 @@ export type AppMetadata = {
     /** A URL to the app's cover image. */
     cover_image_url: string | undefined;
 };
+/** A property that can be present in the metadata of an app. */
+export type AppMetadataProperty = keyof AppMetadataFull;
+/** The metadata for a single app. The available properties depend on which endpoint this was fetched from. */
+export type AppMetadata<P extends AppMetadataProperty> = Pick<AppMetadataFull, P>;
 
 export const formatCurrency = (
     value: number,
     currency: string,
     options: { language: LanguageCode; country: CountryCode }
 ) => new Intl.NumberFormat(`${options.language}-${options.country}`, { style: 'currency', currency }).format(value);
-export const parseAppEntry = (
+
+const appMetadataProperties: Record<
+    Exclude<AppMetadataProperty, 'position'>,
+    (d: any, options: { language: LanguageCode; country: CountryCode }) => any
+> = {
+    app_id: (d) => d[0][0],
+    icon_url: (d) => d[1][3][2],
+    screenshot_urls: (d) => d[2].map((s: any) => s[3][2]),
+    name: (d) => d[3],
+    rating: (d) => d[4][1],
+    category: (d) => d[5],
+    price: (d, o) => (d[8] ? formatCurrency(d[8]?.[1][0][0] / 1e6, d[8]?.[1][0][1], o) : undefined),
+    buy_url: (d) => d[8]?.[6][5][2],
+    store_path: (d) => d[10][4][2],
+    trailer_url: (d) => d[12]?.[0][0][3][2],
+    description: (d) => d[13][1],
+    developer: (d) => d[14],
+    downloads: (d) => d[15],
+    cover_image_url: (d) => d[22][3]?.[2],
+};
+export const parseAppEntry = <P extends AppMetadataProperty>(
     entry: any,
-    idx: number,
-    options: { language: LanguageCode; country: CountryCode }
-): AppMetadata => ({
-    position: idx + 1,
-    app_id: entry[0][0],
-    icon_url: entry[1][3][2],
-    screenshot_urls: entry[2].map((s: any) => s[3][2]),
-    name: entry[3],
-    rating: entry[4][1],
-    category: entry[5],
-    price: entry[8] ? formatCurrency(entry[8]?.[1][0][0] / 1e6, entry[8]?.[1][0][1], options) : undefined,
-    buy_url: entry[8]?.[6][5][2],
-    store_path: entry[10][4][2],
-    trailer_url: entry[12]?.[0][0][3][2],
-    description: entry[13][1],
-    developer: entry[14],
-    downloads: entry[15],
-    cover_image_url: entry[22][3]?.[2],
-});
+    properties: P[] | readonly P[],
+    options: { language: LanguageCode; country: CountryCode; idx?: number }
+): AppMetadata<P> => {
+    const res: Record<string, any> = {};
+
+    if (options.idx) res.position = options.idx + 1;
+
+    for (const [property, getter] of Object.entries(appMetadataProperties).filter(([p]) =>
+        properties.includes(p as P)
+    )) {
+        res[property] = getter(entry, options);
+    }
+
+    return res as AppMetadata<P>;
+};

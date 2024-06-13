@@ -13,6 +13,10 @@ parse-play - v2.2.0
 ### Type Aliases
 
 - [AppMetadata](README.md#appmetadata)
+- [AppMetadataFull](README.md#appmetadatafull)
+- [AppMetadataProperty](README.md#appmetadataproperty)
+- [AppMetadataPropertySearch](README.md#appmetadatapropertysearch)
+- [AppMetadataPropertyTopCharts](README.md#appmetadatapropertytopcharts)
 - [CategoryId](README.md#categoryid)
 - [CountryCode](README.md#countrycode)
 - [DataSafetyLabel](README.md#datasafetylabel)
@@ -37,6 +41,8 @@ parse-play - v2.2.0
 - [dataSafetyLabelDataCategories](README.md#datasafetylabeldatacategories)
 - [dataSafetyLabelDataTypes](README.md#datasafetylabeldatatypes)
 - [dataSafetyLabelPurposes](README.md#datasafetylabelpurposes)
+- [searchAppMetadataProperties](README.md#searchappmetadataproperties)
+- [topChartsAppMetadataProperties](README.md#topchartsappmetadataproperties)
 
 ### Functions
 
@@ -48,9 +54,28 @@ parse-play - v2.2.0
 
 ### AppMetadata
 
-Ƭ **AppMetadata**: `Object`
+Ƭ **AppMetadata**<`P`\>: `Pick`<[`AppMetadataFull`](README.md#appmetadatafull), `P`\>
 
-A single app and its associated metadata.
+The metadata for a single app. The available properties depend on which endpoint this was fetched from.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `P` | extends [`AppMetadataProperty`](README.md#appmetadataproperty) |
+
+#### Defined in
+
+[common/data-format.ts:42](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L42)
+
+___
+
+### AppMetadataFull
+
+Ƭ **AppMetadataFull**: `Object`
+
+The full metadata that can theoretically be fetched for an app. The individual endpoints will only return a subset of
+this, see [AppMetadata](README.md#appmetadata).
 
 #### Type declaration
 
@@ -74,7 +99,43 @@ A single app and its associated metadata.
 
 #### Defined in
 
-[common/data-format.ts:6](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L6)
+[common/data-format.ts:7](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L7)
+
+___
+
+### AppMetadataProperty
+
+Ƭ **AppMetadataProperty**: keyof [`AppMetadataFull`](README.md#appmetadatafull)
+
+A property that can be present in the metadata of an app.
+
+#### Defined in
+
+[common/data-format.ts:40](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L40)
+
+___
+
+### AppMetadataPropertySearch
+
+Ƭ **AppMetadataPropertySearch**: typeof [`searchAppMetadataProperties`](README.md#searchappmetadataproperties)[`number`]
+
+A property present in the metadata of each app in the search results.
+
+#### Defined in
+
+[endpoints/search.ts:42](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L42)
+
+___
+
+### AppMetadataPropertyTopCharts
+
+Ƭ **AppMetadataPropertyTopCharts**: typeof [`topChartsAppMetadataProperties`](README.md#topchartsappmetadataproperties)[`number`]
+
+A property present in the metadata of each app in the top chart.
+
+#### Defined in
+
+[endpoints/top-charts.ts:49](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L49)
 
 ___
 
@@ -297,25 +358,25 @@ ___
 
 ### SearchAppsResults
 
-Ƭ **SearchAppsResults**: [`AppMetadata`](README.md#appmetadata)[]
+Ƭ **SearchAppsResults**: [`AppMetadata`](README.md#appmetadata)<[`AppMetadataPropertySearch`](README.md#appmetadatapropertysearch)\>[]
 
 A list of the search results.
 
 #### Defined in
 
-[endpoints/search.ts:26](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L26)
+[endpoints/search.ts:46](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L46)
 
 ___
 
 ### TopChartsEntry
 
-Ƭ **TopChartsEntry**: [`AppMetadata`](README.md#appmetadata)
+Ƭ **TopChartsEntry**: [`AppMetadata`](README.md#appmetadata)<[`AppMetadataPropertyTopCharts`](README.md#appmetadatapropertytopcharts)\>
 
 A single app and its associated metadata on a top chart.
 
 #### Defined in
 
-[endpoints/top-charts.ts:33](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L33)
+[endpoints/top-charts.ts:54](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L54)
 
 ___
 
@@ -366,7 +427,7 @@ A list of the entries on the respective top chart.
 
 #### Defined in
 
-[endpoints/top-charts.ts:37](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L37)
+[endpoints/top-charts.ts:58](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L58)
 
 ## Variables
 
@@ -409,6 +470,30 @@ Taken from the official documentation: <https://web.archive.org/web/202207011224
 #### Defined in
 
 [common/consts.ts:325](https://github.com/baltpeter/parse-play/blob/main/src/common/consts.ts#L325)
+
+___
+
+### searchAppMetadataProperties
+
+• `Const` **searchAppMetadataProperties**: readonly [``"position"``, ``"app_id"``, ``"icon_url"``, ``"screenshot_urls"``, ``"name"``, ``"rating"``, ``"category"``, ``"price"``, ``"buy_url"``, ``"store_path"``, ``"trailer_url"``, ``"description"``, ``"developer"``, ``"downloads"``, ``"cover_image_url"``]
+
+The properties present in the metadata of each app in the search results.
+
+#### Defined in
+
+[endpoints/search.ts:24](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L24)
+
+___
+
+### topChartsAppMetadataProperties
+
+• `Const` **topChartsAppMetadataProperties**: readonly [``"position"``, ``"app_id"``, ``"icon_url"``, ``"screenshot_urls"``, ``"name"``, ``"rating"``, ``"category"``, ``"price"``, ``"buy_url"``, ``"store_path"``, ``"trailer_url"``, ``"description"``, ``"developer"``, ``"downloads"``, ``"cover_image_url"``]
+
+The properties present in the metadata of each app in the top chart.
+
+#### Defined in
+
+[endpoints/top-charts.ts:31](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L31)
 
 ## Functions
 
@@ -486,7 +571,7 @@ The top chart.
 
 #### Defined in
 
-[endpoints/top-charts.ts:96](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L96)
+[endpoints/top-charts.ts:117](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L117)
 
 ▸ **fetchTopCharts**(`requests`, `options`): `Promise`<([`TopChartsResult`](README.md#topchartsresult) \| `undefined`)[]\>
 
@@ -510,7 +595,7 @@ An array of the top charts, in the same order as the requests.
 
 #### Defined in
 
-[endpoints/top-charts.ts:110](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L110)
+[endpoints/top-charts.ts:131](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/top-charts.ts#L131)
 
 ___
 
@@ -537,7 +622,7 @@ The search results.
 
 #### Defined in
 
-[endpoints/search.ts:131](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L131)
+[endpoints/search.ts:151](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L151)
 
 ▸ **searchApps**(`requests`, `options`): `Promise`<([`SearchAppsResults`](README.md#searchappsresults) \| `undefined`)[]\>
 
@@ -561,4 +646,4 @@ An array of the search results, in the same order as the requests.
 
 #### Defined in
 
-[endpoints/search.ts:145](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L145)
+[endpoints/search.ts:165](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/search.ts#L165)
