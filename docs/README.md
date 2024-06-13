@@ -265,6 +265,10 @@ ___
 
 An app's data safety label.
 
+**`deprecated`** The separate function for fetching data safety labels is deprecated and will be removed in a future
+release. Instead, you can use the [fetchAppDetails](README.md#fetchappdetails) function to fetch an app's metadata, which includes the
+data safety label.
+
 #### Type declaration
 
 | Name | Type | Description |
@@ -285,7 +289,7 @@ An app's data safety label.
 
 #### Defined in
 
-[endpoints/data-safety.ts:61](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L61)
+[endpoints/data-safety.ts:69](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L69)
 
 ___
 
@@ -331,6 +335,10 @@ ___
 
 Parameters for a single data safety label request.
 
+**`deprecated`** The separate function for fetching data safety labels is deprecated and will be removed in a future
+release. Instead, you can use the [fetchAppDetails](README.md#fetchappdetails) function to fetch an app's metadata, which includes the
+data safety label.
+
 #### Type declaration
 
 | Name | Type | Description |
@@ -339,7 +347,7 @@ Parameters for a single data safety label request.
 
 #### Defined in
 
-[endpoints/data-safety.ts:14](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L14)
+[endpoints/data-safety.ts:18](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L18)
 
 ___
 
@@ -360,7 +368,7 @@ An app's declared security practices in a data safety label.
 
 #### Defined in
 
-[endpoints/data-safety.ts:44](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L44)
+[endpoints/data-safety.ts:48](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L48)
 
 ___
 
@@ -378,7 +386,7 @@ Parameters for all data safety label requests in a [fetchDataSafetyLabels](READM
 
 #### Defined in
 
-[endpoints/data-safety.ts:23](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L23)
+[endpoints/data-safety.ts:27](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L27)
 
 ___
 
@@ -399,7 +407,7 @@ An app's declaration for a single data type in a data safety label.
 
 #### Defined in
 
-[endpoints/data-safety.ts:31](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L31)
+[endpoints/data-safety.ts:35](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L35)
 
 ___
 
@@ -685,6 +693,10 @@ Fetch and parse the given app's data safety label from the Google Play Store.
 
 This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `Ws7gDc`.
 
+**`deprecated`** The separate function for fetching data safety labels is deprecated and will be removed in a future
+release. Instead, you can use the [fetchAppDetails](README.md#fetchappdetails) function to fetch an app's metadata, which includes the
+data safety label.
+
 #### Parameters
 
 | Name | Type | Description |
@@ -700,12 +712,16 @@ The data safety label.
 
 #### Defined in
 
-[endpoints/data-safety.ts:186](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L186)
+[endpoints/data-safety.ts:198](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L198)
 
 ▸ **fetchDataSafetyLabels**(`requests`, `options`): `Promise`<([`DataSafetyLabel`](README.md#datasafetylabel) \| `undefined`)[]\>
 
 Same as [fetchDataSafetyLabels](README.md#fetchdatasafetylabels) but for fetching multiple data safety labels at once. The data safety labels
 are fetched in a single API request.
+
+**`deprecated`** The separate function for fetching data safety labels is deprecated and will be removed in a future
+release. Instead, you can use the [fetchAppDetails](README.md#fetchappdetails) function to fetch an app's metadata, which includes the
+data safety label.
 
 **`see`** [fetchDataSafetyLabels](README.md#fetchdatasafetylabels)
 
@@ -724,7 +740,7 @@ An array of the data safety labels, in the same order as the requests.
 
 #### Defined in
 
-[endpoints/data-safety.ts:200](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L200)
+[endpoints/data-safety.ts:216](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/data-safety.ts#L216)
 
 ___
 

@@ -10,6 +10,10 @@ import { assert } from '../common/assert';
 
 /**
  * Parameters for a single data safety label request.
+ *
+ * @deprecated The separate function for fetching data safety labels is deprecated and will be removed in a future
+ * release. Instead, you can use the {@link fetchAppDetails} function to fetch an app's metadata, which includes the
+ * data safety label.
  */
 export type DataSafetyLabelRequest = {
     /**
@@ -57,6 +61,10 @@ export type DataSafetyLabelSecurityPracticesDeclarations = {
 };
 /**
  * An app's data safety label.
+ *
+ * @deprecated The separate function for fetching data safety labels is deprecated and will be removed in a future
+ * release. Instead, you can use the {@link fetchAppDetails} function to fetch an app's metadata, which includes the
+ * data safety label.
  */
 export type DataSafetyLabel = {
     /** The app's name. */
@@ -179,6 +187,10 @@ export const parseDataSafetyLabelPayload = (payload: any): DataSafetyLabel | und
  *
  * This uses the Play Store's internal `batchexecute` endpoint with an RPC ID of `Ws7gDc`.
  *
+ * @deprecated The separate function for fetching data safety labels is deprecated and will be removed in a future
+ * release. Instead, you can use the {@link fetchAppDetails} function to fetch an app's metadata, which includes the
+ * data safety label.
+ *
  * @param request The parameters for which app to fetch.
  * @param options Language options.
  * @returns The data safety label.
@@ -190,6 +202,10 @@ export async function fetchDataSafetyLabels(
 /**
  * Same as {@link fetchDataSafetyLabels} but for fetching multiple data safety labels at once. The data safety labels
  * are fetched in a single API request.
+ *
+ * @deprecated The separate function for fetching data safety labels is deprecated and will be removed in a future
+ * release. Instead, you can use the {@link fetchAppDetails} function to fetch an app's metadata, which includes the
+ * data safety label.
  *
  * @see {@link fetchDataSafetyLabels}
  *
