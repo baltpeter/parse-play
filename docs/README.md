@@ -105,7 +105,7 @@ The result of a fetch app details request.
 
 #### Defined in
 
-[endpoints/app-details.ts:58](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L58)
+[endpoints/app-details.ts:59](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L59)
 
 ___
 
@@ -123,7 +123,7 @@ The metadata for a single app. The available properties depend on which endpoint
 
 #### Defined in
 
-[common/data-format.ts:112](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L112)
+[common/data-format.ts:127](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L127)
 
 ___
 
@@ -165,6 +165,13 @@ this, see [AppMetadata](README.md#appmetadata).
 | `price` | `string` \| `undefined` | The app's price. Can be undefined for pre-release apps. |
 | `privacy_policy_url` | `string` \| `undefined` | The URL to the app's privacy policy. |
 | `rating` | `number` \| `undefined` | The app's review rating. |
+| `rating_counts` | { `1`: `number` ; `2`: `number` ; `3`: `number` ; `4`: `number` ; `5`: `number` ; `total`: `number`  } | The number of each rating the app has received. |
+| `rating_counts.1` | `number` | The number of 1-star ratings. |
+| `rating_counts.2` | `number` | The number of 2-star ratings. |
+| `rating_counts.3` | `number` | The number of 3-star ratings. |
+| `rating_counts.4` | `number` | The number of 4-star ratings. |
+| `rating_counts.5` | `number` | The number of 5-star ratings. |
+| `rating_counts.total` | `number` | The total number of ratings. |
 | `released_on?` | `Date` | The date when the app was first published. |
 | `requires_android?` | {} | The app's required version of Android. |
 | `screenshot_urls` | `string`[] | URLs to screenshots of the app. |
@@ -195,7 +202,7 @@ A property that can be present in the metadata of an app.
 
 #### Defined in
 
-[common/data-format.ts:110](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L110)
+[common/data-format.ts:125](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L125)
 
 ___
 
@@ -207,7 +214,7 @@ A property present when fetching app details.
 
 #### Defined in
 
-[endpoints/app-details.ts:56](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L56)
+[endpoints/app-details.ts:57](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L57)
 
 ___
 
@@ -600,7 +607,7 @@ ___
 
 ### fetchAppDetailsMetadataProperties
 
-• `Const` **fetchAppDetailsMetadataProperties**: readonly [``"app_id"``, ``"name"``, ``"content_rating"``, ``"released_on"``, ``"downloads"``, ``"downloads_exact"``, ``"in_app_purchases"``, ``"offered_by"``, ``"rating"``, ``"price"``, ``"buy_url"``, ``"top_chart_placement"``, ``"developer"``, ``"developer_path"``, ``"developer_website_url"``, ``"developer_email"``, ``"developer_address"``, ``"description"``, ``"permissions"``, ``"screenshot_urls"``, ``"category"``, ``"icon_url"``, ``"cover_image_url"``, ``"privacy_policy_url"``, ``"trailer_url"``, ``"tags"``, ``"data_shared"``, ``"data_collected"``, ``"security_practices"``, ``"version"``, ``"requires_android"``, ``"updated_on"``]
+• `Const` **fetchAppDetailsMetadataProperties**: readonly [``"app_id"``, ``"name"``, ``"content_rating"``, ``"released_on"``, ``"downloads"``, ``"downloads_exact"``, ``"in_app_purchases"``, ``"offered_by"``, ``"rating"``, ``"rating_counts"``, ``"price"``, ``"buy_url"``, ``"top_chart_placement"``, ``"developer"``, ``"developer_path"``, ``"developer_website_url"``, ``"developer_email"``, ``"developer_address"``, ``"description"``, ``"permissions"``, ``"screenshot_urls"``, ``"category"``, ``"icon_url"``, ``"cover_image_url"``, ``"privacy_policy_url"``, ``"trailer_url"``, ``"tags"``, ``"data_shared"``, ``"data_collected"``, ``"security_practices"``, ``"version"``, ``"requires_android"``, ``"updated_on"``]
 
 The properties present when fetching app details.
 
@@ -657,7 +664,7 @@ The app details.
 
 #### Defined in
 
-[endpoints/app-details.ts:243](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L243)
+[endpoints/app-details.ts:252](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L252)
 
 ▸ **fetchAppDetails**(`requests`, `options`): `Promise`<[`AppDetailsResult`](README.md#appdetailsresult)[]\>
 
@@ -681,7 +688,7 @@ An array of the app details, in the same order as the requests.
 
 #### Defined in
 
-[endpoints/app-details.ts:257](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L257)
+[endpoints/app-details.ts:266](https://github.com/baltpeter/parse-play/blob/main/src/endpoints/app-details.ts#L266)
 
 ___
 
@@ -821,7 +828,7 @@ Parse an app entry in a search or top chart response.
 
 #### Defined in
 
-[common/data-format.ts:139](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L139)
+[common/data-format.ts:154](https://github.com/baltpeter/parse-play/blob/main/src/common/data-format.ts#L154)
 
 ___
 

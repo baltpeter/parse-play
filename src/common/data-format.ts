@@ -30,6 +30,21 @@ export type AppMetadataFull = {
     name: string;
     /** The app's review rating. */
     rating: number | undefined;
+    /** The number of each rating the app has received. */
+    rating_counts: {
+        /** The number of 1-star ratings. */
+        1: number;
+        /** The number of 2-star ratings. */
+        2: number;
+        /** The number of 3-star ratings. */
+        3: number;
+        /** The number of 4-star ratings. */
+        4: number;
+        /** The number of 5-star ratings. */
+        5: number;
+        /** The total number of ratings. */
+        total: number;
+    };
     /** The app's main category. */
     category: string;
     /** The app's price. Can be undefined for pre-release apps. */
