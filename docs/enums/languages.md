@@ -1,4 +1,4 @@
-[parse-play - v2.2.0](../README.md) / languages
+[parse-play - v3.0.0](../README.md) / languages
 
 # Enumeration: languages
 
