@@ -5,7 +5,7 @@
 This library is able to fetch and parse data from undocumented internal API endpoints of the Google Play Store. Currently, it has the following features:
 
 * Fetch the **charts of the most popular apps**, including filtering by category and chart.
-* Fetch apps' **data safety labels**.
+* Fetch an app's **metadata** including **data safety labels**.
 * **Search** for apps.
 
 I'll extend the supported API endpoints over time, as per what I need for my projects. The focus will likely be on functions useful for research into mobile privacy and data protection.
@@ -66,7 +66,125 @@ console.log(topCharts[1]?.[0]?.app_id, topCharts?.[1]?.[0]?.name); // com.MOBGam
 
 Note that despite us trying to fetch 1000 apps for the second chart, only 660 apps were returned. This is a server-side limit.
 
+### Fetch app details
+
+The following example fetches the metadata of the Facebook app:
+
+```ts
+import { fetchAppDetails } from 'parse-play';
+
+(async () => {
+    const appDetails = await fetchAppDetails({ appId: 'com.facebook.katana' }, { language: 'EN', country: 'DE' });
+    console.log(appDetails.name, 'costs', appDetails.price, 'and was last updated on', appDetails.updated_on);
+    // Facebook costs €0.00 and was last updated on 2024-06-13T04:58:13.000Z
+})();
+```
+
+Through this endpoint, you can also fetch an app's data safety labels:
+
+```ts
+const appDetails = await fetchAppDetails({ appId: 'com.facebook.katana' }, { language: 'EN', country: 'DE' });
+
+console.log('Data shared:', appDetails.data_shared);
+console.log('Data collected:', appDetails.data_collected);
+console.log('Security practices:', appDetails.security_practices);
+console.log('Privacy policy URL:', appDetails.privacy_policy_url);
+```
+
+<details>
+<summary>Data safety label response</summary>
+The result looks like this:
+
+```
+Data shared: [
+  {
+    category: 'Personal info',
+    type: 'Name',
+    purposes: [ 'Fraud prevention, security, and compliance' ],
+    optional: false
+  },
+  // …
+]
+Data collected: [
+  {
+    category: 'Personal info',
+    type: 'Name',
+    purposes: [
+      'App functionality',
+      'Analytics',
+      'Developer communications',
+      'Advertising or marketing',
+      'Fraud prevention, security, and compliance',
+      'Personalization',
+      'Account management'
+    ],
+    optional: false
+  },
+  // …
+]
+Security practices: {
+  data_encrypted_in_transit: true,
+  can_request_data_deletion: true,
+  committed_to_play_families_policy: undefined,
+  independent_security_review: undefined
+}
+Privacy policy URL: https://www.facebook.com/about/privacy/
+```
+</details>
+
+### Search for apps
+
+The following example searches for the term "education":
+
+```ts
+import { searchApps } from 'parse-play';
+
+(async () => {
+    const searchResult = await searchApps({ searchTerm: 'education' }, { language: 'EN', country: 'DE' });
+    console.dir(searchResult, { depth: null });
+})();
+```
+
+<details>
+<summary>Search apps response</summary>
+The response looks like this:
+
+```ts
+[
+  {
+    position: 1,
+    app_id: 'de.easysoft.app.education',
+    icon_url: 'https://play-lh.googleusercontent.com/KZ19KJw8vrNy6gpRtyzLAGichfxShCU9L2kZdJbnKs6mrKblKqcWBvM5v9QdgEW-SGFR',
+    screenshot_urls: [
+      'https://play-lh.googleusercontent.com/Bh0sDOl-oOcOtmjKTIXL4eE_vIcDqntnrwqvoi9qylQjptmPnMtZyMkUxUh4JnC0hQ',
+      'https://play-lh.googleusercontent.com/vlOZjzYHjRZEwBTWYVWxkWvXMEjtJGJ2tbJQJuNuB89wgXA-MVLM5MwaJOhRMdY7vA',
+      'https://play-lh.googleusercontent.com/zEiBcIIuY6LP_BbNZQ5PxxilZMmkf6dOn2XsYCNET5GumPOktuhZPo438QiasoVv5g4l',
+      'https://play-lh.googleusercontent.com/XP02HcK1hsyCUdrt9abKiy-KdF0ATB3W5jVVW5StHkxsmrlz22DFXfPbovZhyYjLiqI',
+      'https://play-lh.googleusercontent.com/c3pmHB-DkHZ6j3g3LfmgWgdHlIK18jOt-2oFGkh9GTtQwY2aay7C9VO70XnZPX3qJas',
+      'https://play-lh.googleusercontent.com/8Pj29QXYfhFlmPrMhNvgXdWeCj4X2n3vubIxoHGgd_w4h4MsE04TftKskB53BHp01XU',
+      'https://play-lh.googleusercontent.com/mnyR06BYAQQ66ONQrYMluqALsdpKIV1_M2pKEIYurLlpEdRsE0Yu-AMsOmuPNYk-a8jP'
+    ],
+    name: 'easySoft App Education',
+    rating: 2.739726,
+    category: 'Business',
+    price: '€0.00',
+    buy_url: 'https://play.google.com/store/apps/details?id=de.easysoft.app.education&rdid=de.easysoft.app.education&feature=md&offerId',
+    store_path: '/store/apps/details?id=de.easysoft.app.education',
+    trailer_url: undefined,
+    description: 'With the easySoft App Education, […]',
+    developer: 'easySoft. GmbH',
+    downloads: '10,000+',
+    cover_image_url: 'https://play-lh.googleusercontent.com/mnyR06BYAQQ66ONQrYMluqALsdpKIV1_M2pKEIYurLlpEdRsE0Yu-AMsOmuPNYk-a8jP'
+  },
+  // …
+]
+```
+</details>
+
 ### Fetch an app's data safety labels
+
+> [!WARNING]
+> The separate function for fetching data safety labels is deprecated and will be removed in a future release. Instead, you can use [fetch an app's metadata](#fetch-app-details), which includes the data safety label.
 
 The following example fetches the data safety labels for TikTok in English:
 
@@ -122,54 +240,6 @@ The response looks like this:
 
 You can also request the labels for multiple apps at once by adding corresponding objects to the first parameter, they will all be fetched in a single API request.
 
-### Search for apps
-
-The following example searches for the term "education":
-
-```ts
-import { searchApps } from 'parse-play';
-
-(async () => {
-    const searchResult = await searchApps({ searchTerm: 'education' }, { language: 'EN', country: 'DE' });
-    console.dir(searchResult, { depth: null });
-})();
-```
-
-<details>
-<summary>Search apps response</summary>
-The response looks like this:
-
-```ts
-[
-  {
-    position: 1,
-    app_id: 'de.easysoft.app.education',
-    icon_url: 'https://play-lh.googleusercontent.com/KZ19KJw8vrNy6gpRtyzLAGichfxShCU9L2kZdJbnKs6mrKblKqcWBvM5v9QdgEW-SGFR',
-    screenshot_urls: [
-      'https://play-lh.googleusercontent.com/Bh0sDOl-oOcOtmjKTIXL4eE_vIcDqntnrwqvoi9qylQjptmPnMtZyMkUxUh4JnC0hQ',
-      'https://play-lh.googleusercontent.com/vlOZjzYHjRZEwBTWYVWxkWvXMEjtJGJ2tbJQJuNuB89wgXA-MVLM5MwaJOhRMdY7vA',
-      'https://play-lh.googleusercontent.com/zEiBcIIuY6LP_BbNZQ5PxxilZMmkf6dOn2XsYCNET5GumPOktuhZPo438QiasoVv5g4l',
-      'https://play-lh.googleusercontent.com/XP02HcK1hsyCUdrt9abKiy-KdF0ATB3W5jVVW5StHkxsmrlz22DFXfPbovZhyYjLiqI',
-      'https://play-lh.googleusercontent.com/c3pmHB-DkHZ6j3g3LfmgWgdHlIK18jOt-2oFGkh9GTtQwY2aay7C9VO70XnZPX3qJas',
-      'https://play-lh.googleusercontent.com/8Pj29QXYfhFlmPrMhNvgXdWeCj4X2n3vubIxoHGgd_w4h4MsE04TftKskB53BHp01XU',
-      'https://play-lh.googleusercontent.com/mnyR06BYAQQ66ONQrYMluqALsdpKIV1_M2pKEIYurLlpEdRsE0Yu-AMsOmuPNYk-a8jP'
-    ],
-    name: 'easySoft App Education',
-    rating: 2.739726,
-    category: 'Business',
-    price: '€0.00',
-    buy_url: 'https://play.google.com/store/apps/details?id=de.easysoft.app.education&rdid=de.easysoft.app.education&feature=md&offerId',
-    store_path: '/store/apps/details?id=de.easysoft.app.education',
-    trailer_url: undefined,
-    description: 'With the easySoft App Education, […]',
-    developer: 'easySoft. GmbH',
-    downloads: '10,000+',
-    cover_image_url: 'https://play-lh.googleusercontent.com/mnyR06BYAQQ66ONQrYMluqALsdpKIV1_M2pKEIYurLlpEdRsE0Yu-AMsOmuPNYk-a8jP'
-  },
-  // …
-]
-```
-</details>
 
 ## License
 

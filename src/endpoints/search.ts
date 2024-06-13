@@ -20,10 +20,30 @@ export type SearchAppsOptions = {
     language: LanguageCode;
 };
 
+/** The properties present in the metadata of each app in the search results. */
+export const searchAppMetadataProperties = [
+    'position',
+    'app_id',
+    'icon_url',
+    'screenshot_urls',
+    'name',
+    'rating',
+    'category',
+    'price',
+    'buy_url',
+    'store_path',
+    'trailer_url',
+    'description',
+    'developer',
+    'downloads',
+    'cover_image_url',
+] as const;
+/** A property present in the metadata of each app in the search results. */
+export type AppMetadataPropertySearch = typeof searchAppMetadataProperties[number];
 /**
  * A list of the search results.
  */
-export type SearchAppsResults = AppMetadata[];
+export type SearchAppsResults = AppMetadata<AppMetadataPropertySearch>[];
 
 export const searchAppsRequestPayload = (request: SearchAppsRequest): RequestPayload => [
     'lGYRle',
@@ -77,7 +97,7 @@ export const parseSearchAppsPayload = (data: any, options: SearchAppsOptions): S
 
         assert(() => meta.length === 102 || meta.length === 101, 'Meta length.');
 
-        return parseAppEntry(meta, hasFeaturedApp ? idx + 1 : idx, options);
+        return parseAppEntry(meta, searchAppMetadataProperties, { ...options, idx: hasFeaturedApp ? idx + 1 : idx });
     });
 
     if (hasFeaturedApp) {
@@ -89,7 +109,7 @@ export const parseSearchAppsPayload = (data: any, options: SearchAppsOptions): S
             'Featured entry inner meta length.'
         );
 
-        const featuredEntryParsed: AppMetadata = {
+        const featuredEntryParsed = {
             position: 1,
             app_id: featuredEntry[16][11][0][0],
             icon_url: featuredEntry[16][2][95][0][3][2],
