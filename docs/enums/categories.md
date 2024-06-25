@@ -1,4 +1,4 @@
-[parse-play - v3.0.0](../README.md) / categories
+[parse-play - v3.1.0](../README.md) / categories
 
 # Enumeration: categories
 
