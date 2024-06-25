@@ -28,6 +28,7 @@ export const fetchAppDetailsMetadataProperties = [
     'in_app_purchases',
     'offered_by',
     'rating',
+    'rating_counts',
     'price',
     'buy_url',
     'top_chart_placement',
@@ -186,6 +187,14 @@ export const parseAppDetailsPayload = (payload: any, options: AppDetailsOptions)
         in_app_purchases: data[19]?.[0],
         offered_by: data[37][0],
         rating: data[51][0][1],
+        rating_counts: {
+            1: data[51][1][1][1],
+            2: data[51][1][2][1],
+            3: data[51][1][3][1],
+            4: data[51][1][4][1],
+            5: data[51][1][5][1],
+            total: data[51][2][1],
+        },
         price: data[57][0][0][0][0]
             ? formatCurrency(data[57][0][0][0][0]?.[1][0][0] / 1e6, data[57][0][0][0][0]?.[1][0][1], options)
             : undefined,
